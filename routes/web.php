@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\AdminController;
 
 //Halaman Beranda dan User
 Route::get('/', [UserController::class, 'index']);
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'loginAkun']);
 Route::post('/logout', [UserController::class, 'logoutAkun']);
 Route::get('/register', [UserController::class, 'register']);
@@ -29,3 +30,7 @@ Route::post('/user/update/{id}', [UserController::class, 'update']);
 
 //Halaman admin
 Route::get('/admin', [AdminController::class, 'index']);
+
+
+//Halaman film
+Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
