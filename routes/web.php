@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::post('/registerAkun', [UserController::class, 'registerAkun']);
 Route::get('/user/{id}', [UserController::class, 'detail']);
 Route::get('/user/edit/{id}', [UserController::class, 'edit']);
 Route::post('/user/update/{id}', [UserController::class, 'update']);
+
+//Halaman admin
+Route::get('/admin', [AdminController::class, 'index']);

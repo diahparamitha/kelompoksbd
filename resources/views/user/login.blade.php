@@ -10,6 +10,13 @@
 				<button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
 			</div>
 		@endif
+
+		@if(session()->has('gagal')) <!-- pesan dari gagalcontroller php line 53 -->
+			<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+				{{ session('gagal') }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+			</div>
+		@endif
 	
 	
 		<main class="form-signin">
@@ -17,13 +24,8 @@
 			  <form action="/login" method="post">
 			  	{{ csrf_field() }}<!-- untuk mengenerate token agar user bisa masuk -->
 			  	<div class="form-floating">
-			      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required="" value="{{ old('email') }}">
+			      <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required="" value="{{ old('email') }}">
 			      <label for="email">Email</label>
-			      	 @error('email') <!-- kalau user salah memasukkan data akan muncul pesan eror -->
-					      <div class="invalid-feedback">
-					      	{{ $message }}
-					      </div>
-				      @enderror
 			    </div>
 			    <div class="form-floating">
 			      <input type="password" name="password" class="form-control" id="password" placeholder="password" required="">

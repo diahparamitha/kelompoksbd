@@ -24,8 +24,8 @@
           </a>
             @can('admin')
             <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="/profil/{{auth()->user()->id}}">Profil</a></li>
-              <li><a class="dropdown-item" href="/playdot/admin">Admin</a></li>
+              <li><a class="dropdown-item" href="/user/{{auth()->user()->id}}">Profil</a></li>
+              <li><a class="dropdown-item" href="/admin">Admin</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><form action="/logout" method="post">
                           @csrf

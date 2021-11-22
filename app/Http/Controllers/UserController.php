@@ -59,7 +59,7 @@ class UserController extends Controller
     {
          $auth = $request->validate([
             'email' => 'required | email',
-            'password' => 'required | min:6 | max:8',
+            'password' => 'required',
         ]);
 
         if(Auth::attempt($auth)) {  //Jika data yang diinput sesuai
@@ -68,7 +68,7 @@ class UserController extends Controller
             return redirect()->intended('/'); //diarahkan ke halaman dashboard
         }
 
-        return back()->with('login', 'login gagal!'); //gagal login balik ke halaman login lagi dan tampilkan pesan kesalahan
+        return back()->with('gagal', 'login gagal!'); //gagal login balik ke halaman login lagi dan tampilkan pesan kesalahan
     }
 
          public function detail($id)
@@ -103,7 +103,7 @@ class UserController extends Controller
          public function update(Request $request, $id)
        {
            // Memilih data dari database berdasarkan id dan memperbarui data dengan fungsi update()
-        // lalu kembali ke halaman tabel user
+        // lalu kembali ke halaman beranda
             $users = User::find($id);
             $users->update($request->validate([
                 'nama' => 'required',
