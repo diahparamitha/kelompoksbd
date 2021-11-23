@@ -17,12 +17,12 @@ class CreateDaftarTvshowsTable extends Migration
             $table->increments('id_tvshow');
             $table->string('judul_tvshow');
             $table->string('batasan_umur_film');
-            $table->string('genre_tvshow');
             $table->string('cover_tvshow')->nullable();
             $table->text('description_tvshow');
-            $table->unsignedBigInteger('id_director');
-            $table->unsignedBigInteger('id_pemain');
-            $table->unsignedBigInteger('id_episode');
+            $table->bigInteger('id_director')->unsigned()->references('id')->on('daftar_directors')->onDelete('restrict');
+            $table->bigInteger('id_pemain')->unsigned()->references('id')->on('daftar_pemains')->onDelete('restrict');
+            $table->bigInteger('id_episode')->unsigned()->references('id')->on('daftar_episodes')->onDelete('restrict');
+            $table->bigInteger('id_genre')->unsigned()->references('id')->on('daftar_genres')->onDelete('restrict');
             $table->string('daftar_menu');
             $table->timestamps();
         });
