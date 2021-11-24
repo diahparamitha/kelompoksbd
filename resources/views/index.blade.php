@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-sm"><img style="max-height: 350px; overflow: hidden;" src="{{ asset('img/tsr.jpg') }}" width="185" height="278" alt="1 slide"></div>
           <div class="col-sm"><a href="/film/"><img style="max-height: 350px; overflow: hidden;" src="{{ asset('img/terminal 2.jpg') }}" width="185" height="278" alt="2 slide"></a></div>
-          <div class="col-sm"><a href="/film/2"><img style="max-height: 350px; overflow: hidden;" src="{{ asset('img/cmifyc.jpg') }}" width="185" height="278" alt="3 slide"></a></div>
+          <div class="col-sm"><a href="/film-info"><img style="max-height: 350px; overflow: hidden;" src="{{ asset('img/cmifyc.jpg') }}" width="185" height="278" alt="3 slide"></a></div>
           <div class="col-sm"><img style="max-height: 350px; overflow: hidden;" src="{{ asset('img/tgm.jpg') }}" width="185" height="278" alt="4 slide"></div>
           <div class="col-sm"><img style="max-height: 350px; overflow: hidden;" src="{{ asset('img/fg2.jpg') }}" width="185" height="278" alt="5 slide"></div>
         </div>

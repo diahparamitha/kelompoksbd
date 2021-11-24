@@ -36,7 +36,7 @@ Route::get('/data-tontonan', [AdminController::class, 'tonton']);
 
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
-Route::get('/film/2', [FilmController::class, 'film2']);
+Route::get('/film-info', [FilmController::class, 'film2']);
 
 //Halaman tvshow
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
