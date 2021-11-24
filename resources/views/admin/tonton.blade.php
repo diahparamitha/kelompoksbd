@@ -14,12 +14,16 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Nama</th>
-              <th scope="col">No. Hp</th>
-              <th scope="col">Foto</th>
+              <th scope="col">Judul</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Episode</th>
+              <th scope="col">Director</th>
+              <th scope="col">Pemain</th>
               <th scope="col">Aksi</th>
             </tr>
             <tr>
+              <td></td>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\TvshowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,12 @@ Route::post('/user/update/{id}', [UserController::class, 'update']);
 
 //Halaman admin
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/data-tontonan', [AdminController::class, 'tonton']);
 
 
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
+
+//Halaman tvshow
+Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
+Route::get('/tvshow-info', [TvshowController::class, 'infoShow']);

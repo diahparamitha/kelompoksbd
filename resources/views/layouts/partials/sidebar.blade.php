@@ -7,16 +7,9 @@
               Beranda
             </a>
           </li>
-           <li class="nav-item">
-            <!-- apapun yg setelah tanda post (*) akan aktif -->
-            <a class="nav-link " href="/admin/pengguna">
-              <span data-feather="file-text"></span>
-              Data Pengguna
-            </a>
-          </li>
           <li class="nav-item">
             <!-- apapun yg setelah tanda post (*) akan aktif -->
-            <a class="nav-link " href="/admin/tontonan">
+            <a class="nav-link " href="/data-tontonan">
               <span data-feather="file-text"></span>
               Data Tontonan
             </a>

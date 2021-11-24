@@ -12,4 +12,11 @@ class AdminController extends Controller
             'title' => 'halaman admin'
         ]);
     }
+
+    public function tonton()
+    {
+        return view('admin.tonton', [
+            'title' => 'data tontonan'
+        ]);
+    }
 }
