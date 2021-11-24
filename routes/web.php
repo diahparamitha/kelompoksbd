@@ -34,3 +34,4 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
+Route::get('/film/2', [FilmController::class, 'film2'])->middleware('auth');

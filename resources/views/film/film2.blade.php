@@ -4,7 +4,7 @@
 
 <table align="center" width=800px>
 <tr>
-    <td rowspan="2"> <img src="img/terminal 2.jpg" alt="the terminal" width="185" height="278"> </td>  
+    <td rowspan="2"> <img src="img/cmifyc.jpg" alt="cmifyc" width="185" height="278"> </td>  
 </tr>
 <tr>
     <td></td>
@@ -13,7 +13,7 @@
     <td></td>
     <td></td>
     <td>
-        <h2 class="text-4xl font-semibold">The Terminal</h2>
+        <h2 class="text-4xl font-semibold">Catch Me If You Can</h2>
             <div class="flex items-center text-gray-400 text-sm">
                 <span class="ml-1">13+</span>
                 <span class="mx-2">|</span>

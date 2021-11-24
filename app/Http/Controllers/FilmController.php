@@ -12,4 +12,11 @@ class FilmController extends Controller
             'title' => 'halaman film'
         ]);
     }
+
+    public function film2()
+    {
+        return view('film.film2', [
+            'title' => 'halaman film'
+        ]);
+    }
 }
