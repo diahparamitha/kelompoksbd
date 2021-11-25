@@ -20,9 +20,6 @@
                             <span class="mx-2">|</span>
                             <span>Drama, Comedy</span>
                         </div>
-                        <!-- <p>
-                        <div class="p-2 col-2 col-md-2 col-lg-2 bg-secondary text-white">Mulai Nonton</div>
-                        </p> -->
                     <p>
                         <p class="desc">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit quaerat cumque, porro, accusamus, dolorum reiciendis vero adipisci 
