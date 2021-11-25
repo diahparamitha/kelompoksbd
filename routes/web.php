@@ -40,5 +40,5 @@ Route::get('/film-info', [FilmController::class, 'film2']);
 
 //Halaman tvshow
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
-Route::get('/tvshow-info', [TvshowController::class, 'infoShow']);
+Route::get('/tvshow-info/{id}', [TvshowController::class, 'infoShow']);
 

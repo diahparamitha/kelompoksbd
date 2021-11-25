@@ -14,5 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        \App\Models\daftar_tvshow::factory(5)->create();
+        \App\Models\daftar_director::factory(5)->create();
+        \App\Models\daftar_episode::factory(5)->create();
+        \App\Models\daftar_pemain::factory(5)->create();
+        \App\Models\daftar_genre::factory(5)->create();
     }
 }
