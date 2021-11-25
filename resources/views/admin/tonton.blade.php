@@ -21,19 +21,22 @@
               <th scope="col">Pemain</th>
               <th scope="col">Aksi</th>
             </tr>
+            @foreach($tontonan as $tonton)
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{ $loop->iteration }}</td>
+              <td>{{ $tonton->judul_tvshow}}</td>
+              <td>{{ $tonton->daftar_genre->nama_genre}}</td>
+              <td>{{ $tonton->daftar_episode->no_episode}}</td>
+              <td>{{ $tonton->daftar_director->nama_director}}</td>
+              <td>{{ $tonton->daftar_pemain->nama_pemain}}</td>
                <td>
                 <form action="#" method="post" class="d-inline">
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Hapus data akun ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>
                 </form>
               </td>
+            </tr>
+            @endforeach
           </thead>
           <tbody>
            

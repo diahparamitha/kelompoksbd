@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class daftar_film extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id_film'];
+
 }

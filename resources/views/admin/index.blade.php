@@ -17,19 +17,24 @@
               <th scope="col">Nama</th>
               <th scope="col">No. Hp</th>
               <th scope="col">Foto</th>
+              <th scope="col">Tanggal daftar</th>
               <th scope="col">Aksi</th>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-               <td>
+            @foreach($users->skip(1) as $user)
+            <tr>        
+              <td valign="top">{{$loop->iteration}}</td>
+              <td valign="top">{{$user->nama}}</td>
+              <td valign="top">{{$user->noHp}}</td>
+              <td><img src=" /images/{{ $user->foto }} " height="200px" width="200px"></td>
+              <td valign="top">{{$user->created_at->diffForHumans()}}</td>
+               <td valign="top">
                 <form action="#" method="post" class="d-inline">
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Hapus data akun ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>
                 </form>
               </td>
+            </tr>
+            @endforeach
           </thead>
           <tbody>
            

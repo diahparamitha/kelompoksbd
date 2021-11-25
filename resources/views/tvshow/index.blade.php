@@ -4,61 +4,18 @@
 
 <div class="container">
 		<div class="row justify-content-between">
+			@foreach($tvshow as $tv)
 			<div class="col-md-2 mb-3">
 				<div class="card " style= "height: 250px; width: 185px;">
-					<a href="/tvshow-info">
-						 <img src="" class="img-fluid" alt="">
-		              <img src="https://source.unsplash.com/250x185?" class="card-img-top" alt="">
+					<a href="/tvshow-info/{{ $tv->id_tvshow }}">
+						 <img src="{{ $tv->cover_tvshow }}" class="img-fluid" alt="">
 					</a>
 				</div>
-				 <div class="card-body">
-				    <h5 class="card-title"><a href="/tvshow-info" class="text-decoration-none text-dark">abcdefgh</a></h5>
+				 <div class="card-body mt-3">
+				    <h5 class="card-title"><a href="/tvshow-info/{{ $tv->id_tvshow }}" class="text-decoration-none text-dark">{{ $tv->judul_tvshow}}</a></h5>
 				  </div>
 			</div>
-			<div class="col-md-2 mb-3">
-				<div class="card" style= "height: 250px; width: 185px;">
-					<a href="/tvshow-info">
-						 <img src="" class="img-fluid" alt="">
-		              <img src="https://source.unsplash.com/250x185?" class="card-img-top" alt="">
-					</a>
-				</div>
-				<div class="card-body">
-				    <h5 class="card-title"><a href="/tvshow-info" class="text-decoration-none text-dark">abcdefgh</a></h5>
-				  </div>
-			</div>
-			<div class="col-md-2 mb-3">
-				<div class="card" style= "height: 250px; width: 185px;">
-					<a href="/tvshow-info">
-						 <img src="" class="img-fluid" alt="">
-		              <img src="https://source.unsplash.com/250x185?" class="card-img-top" alt="">
-					</a>
-				</div>
-				<div class="card-body">
-				    <h5 class="card-title"><a href="/tvshow-info" class="text-decoration-none text-dark">abcdefgh</a></h5>
-				  </div>
-			</div>
-			<div class="col-md-2 mb-3">
-				<div class="card " style= "height: 250px; width: 185px;">
-					<a href="/tvshow-info">
-						 <img src="" class="img-fluid" alt="">
-		              <img src="https://source.unsplash.com/250x185?" class="card-img-top" alt="">
-					</a>
-				</div>
-				 <div class="card-body">
-				    <h5 class="card-title"><a href="/tvshow-info" class="text-decoration-none text-dark">abcdefgh</a></h5>
-				  </div>
-			</div>
-			<div class="col-md-2 mb-3">
-				<div class="card " style= "height: 250px; width: 185px;">
-					<a href="/tvshow-info">
-						 <img src="" class="img-fluid" alt="">
-		              <img src="https://source.unsplash.com/250x185?" class="card-img-top" alt="">
-					</a>
-				</div>
-				 <div class="card-body">
-				    <h5 class="card-title"><a href="/tvshow-info" class="text-decoration-none text-dark">abcdefgh</a></h5>
-				  </div>
-			</div>
+			@endforeach
 		</div>
 	</div>
 	
