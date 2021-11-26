@@ -33,5 +33,10 @@ class daftar_tvshow extends Model
         return $this->belongsTo('App\Models\daftar_episode', 'id_episode');    //satu satu tvshow memiliki satu genre
     }
 
+    public function daftar_menu()
+    {
+        return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    //satu satu tvshow memiliki satu menu
+    }
+
 
 }

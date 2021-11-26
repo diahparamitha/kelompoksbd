@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\TvshowController;
+use App\Http\Controllers\daftarkuController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ use App\Http\Controllers\TvshowController;
 */
 
 //Halaman Beranda dan User
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', [IndexController::class, 'index']);
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'loginAkun']);
 Route::post('/logout', [UserController::class, 'logoutAkun']);
@@ -33,7 +35,6 @@ Route::post('/user/update/{id}', [UserController::class, 'update']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/data-tontonan', [AdminController::class, 'tonton']);
 
-
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
 Route::get('/film-info', [FilmController::class, 'film2']);
@@ -41,4 +42,8 @@ Route::get('/film-info', [FilmController::class, 'film2']);
 //Halaman tvshow
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
 Route::get('/tvshow-info/{id}', [TvshowController::class, 'infoShow']);
+Route::get('/tvshow/tambah', [TvshowController::class, 'tambahShow'])->middleware('admin');
+
+//Halaman daftarku
+Route::get('/daftarku', [daftarkuController::class, 'daftarku']);
 

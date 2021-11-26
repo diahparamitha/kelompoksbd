@@ -9,6 +9,7 @@
 	        <h1 class="h2">Welcome admin {{ auth()->user()->nama }} !</h1>
 	      </div>
 	      <h3>Data Pengguna</h3>
+        <p><a href="/tvshow/tambah" class="btn btn-primary">Tambah data tvshow</a></p>
 
 	       <table class="table table-striped table-sm mt-3">
           <thead>
@@ -30,6 +31,8 @@
               <td>{{ $tonton->daftar_director->nama_director}}</td>
               <td>{{ $tonton->daftar_pemain->nama_pemain}}</td>
                <td>
+                <a href="#" class="badge bg-info text-decoration-none"><span data-feather="eye"></span>Lihat</a>
+                <a href="#" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span>Edit</a>
                 <form action="#" method="post" class="d-inline">
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Hapus data akun ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>

@@ -23,7 +23,7 @@ class CreateDaftarTvshowsTable extends Migration
             $table->bigInteger('id_pemain')->unsigned()->references('id')->on('daftar_pemains')->onDelete('restrict');
             $table->bigInteger('id_episode')->unsigned()->references('id')->on('daftar_episodes')->onDelete('restrict');
             $table->bigInteger('id_genre')->unsigned()->references('id')->on('daftar_genres')->onDelete('restrict');
-            $table->string('daftar_menu');
+            $table->bigInteger('id_menu')->unsigned()->references('id')->on('daftar_menus')->onDelete('restrict');
             $table->timestamps();
         });
     }

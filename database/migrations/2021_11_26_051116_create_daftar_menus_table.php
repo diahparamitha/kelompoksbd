@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDaftarEpisodesTable extends Migration
+class CreateDaftarMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDaftarEpisodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('daftar_episodes', function (Blueprint $table) {
-            $table->increments('id_episode');
-            $table->string('no_episode');
+        Schema::create('daftar_menus', function (Blueprint $table) {
+            $table->increments('id_menu');
+            $table->string('nama_menu');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateDaftarEpisodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daftar_episodes');
+        Schema::dropIfExists('daftar_menus');
     }
 }

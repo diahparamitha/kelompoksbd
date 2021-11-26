@@ -23,4 +23,16 @@ class TvshowController extends Controller
             'tvshow' => daftar_tvshow::find($id)
         ]);
     }
+
+    public function tambahShow()
+    {
+        return view('tvshow.tambahShow', [
+            'title' => 'halaman tvshow',
+        ]);
+    }
+
+    public function tambahShow1(Request $request)
+    {
+        
+    }
 }

@@ -34,7 +34,7 @@
 		    </td>
 		</tr>
 		<tr>
-			<td><a href="#" class="btn btn-primary">Daftarku</a></td>
+			<td><a href="/daftarku" class="btn btn-primary">Daftarku</a></td>
 		</tr>
 		</table>
 	</div>

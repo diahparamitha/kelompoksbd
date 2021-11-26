@@ -22,7 +22,7 @@ class daftar_tvshowFactory extends Factory
             'id_pemain' => mt_rand(1,5),
             'id_episode' => mt_rand(1,20),
             'id_genre' => mt_rand(1,5),
-            'daftar_menu' => $this->faker->randomElement(['Original', 'Pilihan', 'Populer']),
+            'id_menu' => mt_rand(1,3),
 
         ];
     }

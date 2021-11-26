@@ -16,7 +16,7 @@ class admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->pemilik) {
+        if(!auth()->check() || !auth()->user()->admin) {
             abort(403);
         }
         

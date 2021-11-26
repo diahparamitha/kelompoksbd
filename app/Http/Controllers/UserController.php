@@ -8,13 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return view('index', [
-            'title' => 'Beranda'
-        ]);
-    }
-
     public function login()
     {
         return view('user.login', [

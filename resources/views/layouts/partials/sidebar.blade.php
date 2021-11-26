@@ -11,7 +11,21 @@
             <!-- apapun yg setelah tanda post (*) akan aktif -->
             <a class="nav-link " href="/data-tontonan">
               <span data-feather="file-text"></span>
-              Data Tontonan
+              Data Tvshow
+            </a>
+          </li>
+           <li class="nav-item">
+            <!-- apapun yg setelah tanda post (*) akan aktif -->
+            <a class="nav-link " href="/data-tontonan">
+              <span data-feather="file-text"></span>
+              Data Film
+            </a>
+          </li>
+           <li class="nav-item">
+            <!-- apapun yg setelah tanda post (*) akan aktif -->
+            <a class="nav-link " href="/data-tontonan">
+              <span data-feather="file-text"></span>
+              Data Sport
             </a>
           </li>
         </ul>

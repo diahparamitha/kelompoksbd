@@ -35,7 +35,7 @@
             @else
             <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
               <li><a class="dropdown-item" href="/user/{{auth()->user()->id}}">Profil</a></li>
-              <li><a class="dropdown-item" href="/user/daftarku">Daftarku</a></li>
+              <li><a class="dropdown-item" href="/daftarku">Daftarku</a></li>
               <li><a class="dropdown-item" href="/user/history">History tontonan</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><form action="/logout" method="post">

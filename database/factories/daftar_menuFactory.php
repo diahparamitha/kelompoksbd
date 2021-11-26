@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class daftar_episodeFactory extends Factory
+class daftar_menuFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,7 @@ class daftar_episodeFactory extends Factory
     public function definition()
     {
         return [
-            'no_episode' => $this->faker->numberBetween($min = 1, $max = 20),
+            'nama_menu' => $this->faker->randomElement(['Original', 'Pilihan', 'Populer']),
         ];
     }
 }
