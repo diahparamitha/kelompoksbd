@@ -43,6 +43,7 @@ Route::get('/film-info/{id}', [FilmController::class, 'film2']);
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
 Route::get('/tvshow-info/{id}', [TvshowController::class, 'infoShow']);
 Route::get('/tvshow/tambah', [TvshowController::class, 'tambahShow'])->middleware('admin');
+Route::get('/tvshow/tambahShow', [TvshowController::class, 'tambahShow1']);
 
 //Halaman daftarku
 Route::get('/daftarku', [daftarkuController::class, 'daftarku']);

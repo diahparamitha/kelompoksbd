@@ -19,9 +19,10 @@ class daftar_filmFactory extends Factory
             'cover_film' => $this->faker->imageUrl($width = 185, $height = 278),
             'description_film' => $this->faker->sentence(mt_rand(10,20)),
             'komentar_film' => $this->faker->sentence(mt_rand(10,20)),
-            'id_director' => mt_rand(1,5),
-            'id_pemain' => mt_rand(1,5),
-            'id_genre' => mt_rand(1,5),
+            'id_director' => mt_rand(1,10),
+            'id_pemain' => mt_rand(1,10),
+            'id_genre' => mt_rand(1,7),
+            'id_menu' => mt_rand(1,8),
         ];
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\daftar_tvshow;
+use App\Models\daftar_menu;
+use App\Models\daftar_genre;
 
 class TvshowController extends Controller
 {
@@ -28,6 +30,8 @@ class TvshowController extends Controller
     {
         return view('tvshow.tambahShow', [
             'title' => 'halaman tvshow',
+            'menu' => daftar_menu::all(),
+            'genre' => daftar_genre::all(),
         ]);
     }
 

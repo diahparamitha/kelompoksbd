@@ -13,6 +13,11 @@ class daftar_menu extends Model
 
      public function daftar_tvshow()
     {
-        return $this->belongsTo('App\Models\daftar_tvshow', 'id_tvshow');    //satu satu tvshow memiliki satu genre
+        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    //satu satu tvshow memiliki satu genre
+    }
+
+    public function daftar_film()
+    {
+        return $this->hasMany('App\Models\daftar_film', 'id_film');    //satu satu tvshow memiliki satu genre
     }
 }

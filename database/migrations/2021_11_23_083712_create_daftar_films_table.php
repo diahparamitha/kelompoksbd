@@ -22,6 +22,7 @@ class CreateDaftarFilmsTable extends Migration
             $table->unsignedBigInteger('id_director')->references('id')->on('daftar_directors')->onDelete('restrict');
             $table->unsignedBigInteger('id_pemain')->references('id')->on('daftar_pemains')->onDelete('restrict');
             $table->unsignedBigInteger('id_genre')->references('id')->on('daftar_genres')->onDelete('restrict');
+            $table->unsignedBigInteger('id_menu')->references('id')->on('daftar_manu')->onDelete('restrict');
             $table->string('komentar_film');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class daftar_menuFactory extends Factory
     public function definition()
     {
         return [
-            'nama_menu' => $this->faker->randomElement(['Original', 'Pilihan', 'Populer']),
+            'nama_menu' => $this->faker->randomElement(['Populer', 'Pilihan', 'Original', 'Korean', 'India', 'Anime', 'Chinese', 'Thai']),
         ];
     }
 }
