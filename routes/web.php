@@ -30,6 +30,7 @@ Route::post('/registerAkun', [UserController::class, 'registerAkun']);
 Route::get('/user/{id}', [UserController::class, 'detail']);
 Route::get('/user/edit/{id}', [UserController::class, 'edit']);
 Route::post('/user/update/{id}', [UserController::class, 'update']);
+Route::post('/user/delete/{id}', [UserController::class, 'delete']);
 
 //Halaman admin
 Route::get('/admin', [AdminController::class, 'index']);
@@ -43,7 +44,10 @@ Route::get('/film-info/{id}', [FilmController::class, 'film2']);
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
 Route::get('/tvshow-info/{id}', [TvshowController::class, 'infoShow']);
 Route::get('/tvshow/tambah', [TvshowController::class, 'tambahShow'])->middleware('admin');
-Route::get('/tvshow/tambahShow', [TvshowController::class, 'tambahShow1']);
+Route::post('/tvshow/tambah', [TvshowController::class, 'tambahShow1']);
+Route::get('/tvshow-info/edit/{id}', [TvshowController::class, 'edit']);
+Route::post('/tvshow-info/delete/{id}', [TvshowController::class, 'delete']);
+Route::post('/tvshow-info/update/{id}', [TvshowController::class, 'update']);
 
 //Halaman daftarku
 Route::get('/daftarku', [daftarkuController::class, 'daftarku']);

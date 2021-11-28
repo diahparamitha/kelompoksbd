@@ -14,7 +14,7 @@ class daftar_episodeFactory extends Factory
     public function definition()
     {
         return [
-            'no_episode' => $this->faker->numberBetween($min = 1, $max = 20),
+            'no_episode' => $this->faker->randomElement(['2', '3', '8' , '12', '16', '20', '24', '32', '36', '50']),
         ];
     }
 }

@@ -14,7 +14,7 @@ class daftar_pemainFactory extends Factory
     public function definition()
     {
         return [
-            'nama_pemain' => $this->faker->name(),
+            'nama_pemain' => $this->faker->randomElement([ 'Jung Ho Yeon', 'Arbani Yasiz', 'Syifa Hadju', 'Vin Diesel','Ji Chang Wook', 'Shah Rukh Han', 'ChangXin Xu','Ray', 'Mario Maurer', 'Tiara Andini']),
         ];
     }
 }

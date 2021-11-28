@@ -14,7 +14,7 @@ class daftar_directorFactory extends Factory
     public function definition()
     {
         return [
-            'nama_director' => $this->faker->name(),
+            'nama_director' => $this->faker->randomElement(['Diah Paramitha', 'Adinda Khairani', 'Afdoni Prabawa Said', 'Logi Sanjaya']),
         ];
     }
 }

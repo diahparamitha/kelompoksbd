@@ -5,6 +5,28 @@
 @include('layouts/partials/navbar')
 
 	<div class="container">
+
+    @if(session()->has('success')) <!-- pesan dari DashboardPostController php line 59 -->
+      <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+      </div>
+    @endif
+
+    @if(session()->has('delete')) <!-- pesan dari DashboardPostController php line 59 -->
+      <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        {{ session('delete') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+      </div>
+    @endif
+
+    @if(session()->has('edit')) <!-- pesan dari DashboardPostController php line 59 -->
+      <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {{ session('edit') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+      </div>
+    @endif
+
 	  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 	        <h1 class="h2">Welcome admin {{ auth()->user()->nama }} !</h1>
 	      </div>
@@ -17,7 +39,7 @@
               <th scope="col">#</th>
               <th scope="col">Judul</th>
               <th scope="col">Genre</th>
-              <th scope="col">Episode</th>
+              <th scope="col">Jumlah Episode</th>
               <th scope="col">Director</th>
               <th scope="col">Pemain</th>
               <th scope="col">Aksi</th>
@@ -31,11 +53,11 @@
               <td>{{ $tonton->daftar_director->nama_director}}</td>
               <td>{{ $tonton->daftar_pemain->nama_pemain}}</td>
                <td>
-                <a href="#" class="badge bg-info text-decoration-none"><span data-feather="eye"></span>Lihat</a>
-                <a href="#" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span>Edit</a>
-                <form action="#" method="post" class="d-inline">
+                <a href="/tvshow-info/{{ $tonton->id_tvshow }}" class="badge bg-info text-decoration-none"><span data-feather="eye"></span>Lihat</a>
+                <a href="/tvshow-info/edit/{{ $tonton->id_tvshow }}" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span>Edit</a>
+                <form action="/tvshow-info/delete/{{ $tonton->id_tvshow }}" method="post" class="d-inline">
                   @csrf
-                  <button class="badge bg-danger border-0" onclick="return confirm('Hapus data akun ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>
+                  <button class="badge bg-danger border-0" onclick="return confirm('Hapus tvshow {{ $tonton->judul_tvshow}} ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>
                 </form>
               </td>
             </tr>

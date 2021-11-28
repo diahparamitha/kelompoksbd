@@ -11,10 +11,8 @@
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text-dark mt-3">
               <img
-                src=" /images/{{ $user->foto }}"
-                alt="..."
-                class="img-fluid my-2"
-                style="width: 120;"/>
+                src=" /images/{{ $user->foto }}" alt="..." class="img-fluid my-2"
+                style="width: 350px; height: 350px; overflow: hidden;">
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">

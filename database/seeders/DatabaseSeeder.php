@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\daftar_menu;
 use App\Models\daftar_genre;
+use App\Models\daftar_director;
+use App\Models\daftar_episode;
+use App\Models\daftar_pemain;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +19,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(5)->create();
-        \App\Models\daftar_tvshow::factory(10)->create();
-        \App\Models\daftar_director::factory(10)->create();
-        \App\Models\daftar_episode::factory(10)->create();
-        \App\Models\daftar_pemain::factory(10)->create();
-       \App\Models\daftar_film::factory(10)->create();
+        /*\App\Models\daftar_tvshow::factory(3)->create();
+       \App\Models\daftar_film::factory(3)->create();*/
 
         daftar_menu::create([
             'nama_menu' => 'Pilihan'
@@ -32,26 +32,6 @@ class DatabaseSeeder extends Seeder
 
         daftar_menu::create([
             'nama_menu' => 'Populer'
-        ]);
-
-        daftar_menu::create([
-            'nama_menu' => 'Korean'
-        ]);
-
-        daftar_menu::create([
-            'nama_menu' => 'Indian'
-        ]);
-
-        daftar_menu::create([
-            'nama_menu' => 'Anime'
-        ]);
-
-        daftar_menu::create([
-            'nama_menu' => 'Chinese'
-        ]);
-
-        daftar_menu::create([
-            'nama_menu' => 'Thai'
         ]);
 
         //genre
@@ -67,21 +47,33 @@ class DatabaseSeeder extends Seeder
             'nama_genre' => 'thriller'
         ]);
 
-           daftar_genre::create([
-            'nama_genre' => 'horror'
+        //director
+           daftar_director::create([
+            'nama_director' => 'Manoj Punjabi'
         ]);
 
-            daftar_genre::create([
-            'nama_genre' => 'comedy'
+           daftar_director::create([
+            'nama_director' => 'Umay Shihab'
         ]);
 
-             daftar_genre::create([
-            'nama_genre' => 'romantic'
+        //pemain
+            daftar_pemain::create([
+            'nama_pemain' => 'Syifa Hadju'
         ]);
 
-              daftar_genre::create([
-            'nama_genre' => 'family'
+            daftar_pemain::create([
+            'nama_pemain' => 'Rizky Nazar'
         ]);
 
+        //episode
+             daftar_episode::create([
+            'no_episode' => '8'
+        ]);
+
+             daftar_episode::create([
+            'no_episode' => '2'
+        ]);
+
+        
     }
 }

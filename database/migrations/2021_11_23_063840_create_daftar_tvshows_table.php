@@ -16,7 +16,7 @@ class CreateDaftarTvshowsTable extends Migration
         Schema::create('daftar_tvshows', function (Blueprint $table) {
             $table->increments('id_tvshow');
             $table->string('judul_tvshow');
-            $table->string('batasan_umur_film');
+            $table->string('batasan_umur_tvshow');
             $table->string('cover_tvshow')->nullable();
             $table->text('description_tvshow');
             $table->bigInteger('id_director')->unsigned()->references('id')->on('daftar_directors')->onDelete('restrict');

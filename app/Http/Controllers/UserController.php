@@ -115,5 +115,13 @@ class UserController extends Controller
             return redirect('/')->with('edit', ' Profil berhasil diedit!');
        }
 
+       public function delete($id)
+       {
+            $user = User::find($id);
+            $user->delete();
+
+            return redirect('/admin')->with('delete', 'akun user berhasil dihapus');
+       }
+
 
 }
