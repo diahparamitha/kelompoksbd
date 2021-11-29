@@ -15,7 +15,7 @@ class daftar_pemain extends Model
 
     public function tvshow()
     {
-        return $this->belongsTo(daftar_tvshowe::class);    
+        return $this->hasMany(daftar_tvshowe::class);    
     }
 
 }

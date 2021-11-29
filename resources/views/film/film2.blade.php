@@ -5,7 +5,9 @@
 	<div class="container mt-5">
 		<table align="center" width=800px>
 		<tr>
-		    <td rowspan="2"> <img src="{{ $film->cover_film}}" alt="{{ $film->judul_film}}" width="185" height="278"> </td>  
+		    <td rowspan="2">
+				<img src= "/images/film/{{ $film->cover_film }}" style= "height: 250px; width: 185px; overflow: hidden;" alt="{{ $film->judul_film}}">
+			</td>  
 		</tr>
 		<tr>
 		    <td></td>

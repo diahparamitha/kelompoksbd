@@ -6,10 +6,14 @@
 		<div class="row">
 			@foreach($film as $film)
 			<div class="col-md-3 mb-3 px-5">
-				<div class="card " style= "height: 250px; width: 185px;">
+				<div class="card " style= "height: 250px; width: 185px; overflow: hidden;">
 					<div class="position-absolute px-2 py-1" style="background-color: lightcoral;">{{ $film->daftar_menu->nama_menu}}</div>
 					<a href="/film-info/{{ $film->id_film }}">
+						 @if($film->cover_film)
+						<img src="/images/film/{{ $film->cover_film }}" class="img-fluid" alt="{{ $film->judul_film}}">
+						@else
 						 <img src="{{ $film->cover_film }}" class="img-fluid" alt="{{ $film->judul_film }}">
+						 @endif
 					</a>
 				</div>
 				 <div class="card-body mt-3">
@@ -20,4 +24,4 @@
 		</div>
 	</div>
 	
-@endsection
+@endsection 

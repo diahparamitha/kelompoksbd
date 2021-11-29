@@ -35,10 +35,14 @@ Route::post('/user/delete/{id}', [UserController::class, 'delete']);
 //Halaman admin
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/data-tontonan', [AdminController::class, 'tonton']);
+Route::get('/data-tontonan/film', [AdminController::class, 'tontonFilm']);
 
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
 Route::get('/film-info/{id}', [FilmController::class, 'film2']);
+Route::get('/film/tambah', [FilmController::class, 'tambahFilm'])->middleware('admin');
+Route::post('/film/tambah', [FilmController::class, 'tambahFilm1']);
+Route::post('/film-info/delete/{id}', [FilmController::class, 'delete']);
 
 //Halaman tvshow
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');

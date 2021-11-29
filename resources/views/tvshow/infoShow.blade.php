@@ -5,12 +5,8 @@
 	<div class="container mt-5">
 		<table align="center" width=800px>
 		<tr>
-		    <td rowspan="2"> 
-		    	@if($tvshow->cover_tvshow)
+		    <td rowspan="2">
 				<img src= "/images/tvshow/{{ $tvshow->cover_tvshow }}" style= "height: 250px; width: 185px; overflow: hidden;" alt="{{ $tvshow->judul_tvshow}}">
-				@else
-				 <img src="{{ $tvshow->cover_tvshow }}" class="img-fluid" alt="{{ $tvshow->judul_tvshow }}">
-				 @endif 
 			</td>  
 		</tr>
 		<tr>

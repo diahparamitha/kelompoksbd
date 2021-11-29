@@ -17,7 +17,6 @@ class TvshowController extends Controller
         return view('tvshow.index', [
             'title' => 'halaman tvshow',
             'tvshow' => daftar_tvshow::all()->sortBy('created_at')
-
         ]);
     }
 

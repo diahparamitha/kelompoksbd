@@ -16,7 +16,7 @@
           </li>
            <li class="nav-item">
             <!-- apapun yg setelah tanda post (*) akan aktif -->
-            <a class="nav-link " href="/data-tontonan">
+            <a class="nav-link " href="/data-tontonan/film">
               <span data-feather="file-text"></span>
               Data Film
             </a>

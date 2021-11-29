@@ -15,7 +15,7 @@ class daftar_genre extends Model
 
      public function daftar_tvshow()
     {
-        return $this->belongsTo(daftar_tvshow::class);    //satu tvshow memiliki satu genre
+        return $this->hasMany(daftar_tvshow::class);    //satu tvshow memiliki satu genre
     }
 
 
