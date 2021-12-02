@@ -15,7 +15,7 @@ class FilmController extends Controller
     {
         return view('film.index', [
             'title' => 'halaman film' ,
-            'film' => daftar_film::all()->sortBy('created_at')
+            'film' => daftar_film::join('daftar_menus', 'daftar_menus.id_menu', '=', 'daftar_films.id_menu')->get()
         ]);
     }
 
@@ -61,6 +61,45 @@ class FilmController extends Controller
         daftar_film::create($data);
           return redirect('/data-tontonan/film')->with('success', ' Film berhasil ditambah!');
 
+    }
+
+    public function edit($id)
+    {
+        $film = daftar_film::find($id);
+
+        return view('film.edit',[
+            'film' => $film,
+            'title' => 'edit film',
+            'menu' => daftar_menu::all(),
+            'genre' => daftar_genre::all(),
+            'director' => daftar_director::all(),
+            'pemain' => daftar_pemain::all(),
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $film = daftar_film::find($id);
+        $film->update($request->validate([
+            'judul_film' => 'required | max:100',
+            'batasan_umur_film' => 'required | numeric',
+            'cover_film' => 'image | file | max:1024',
+            'description_film' => 'required',
+            'komentar_film' => 'required',
+            'id_director' => 'required',
+            'id_pemain' => 'required',
+            'id_genre' => 'required',
+            'id_menu' => 'required',
+            ]));
+        
+        if($request->hasFile('cover_film')) {
+            // Mengambil gambar dan menyimpannya di folder tujuan dengan nama asli
+            $request->file('cover_film')->move('images/film', $request->file('cover_film')->getClientOriginalName());
+            $film->cover_film = $request->file('cover_film')->getClientOriginalName();
+            $film->save();
+        }
+
+        return redirect('/data-tontonan/film')->with('edit', ' data film berhasil diedit!');
     }
 
     public function delete($id)

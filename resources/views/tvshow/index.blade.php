@@ -8,7 +8,7 @@
 			@foreach($tvshow as $tv)
 			<div class="col-md-3 mb-3 px-5">
 				<div class="card " style= "height: 250px; width: 185px; overflow: hidden;">
-					<div class="position-absolute px-2 py-1" style="background-color: lightcoral;">{{ $tv->daftar_menu->nama_menu}}</div>
+					<div class="position-absolute px-2 py-1" style="background-color: lightcoral;">{{ $tv->nama_menu}}</div>
 					<a href="/tvshow-info/{{ $tv->id_tvshow }}">
 						@if($tv->cover_tvshow)
 						<img src="/images/tvshow/{{ $tv->cover_tvshow }}" class="img-fluid" alt="{{ $tv->judul_tvshow}}">

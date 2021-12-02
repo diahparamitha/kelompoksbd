@@ -16,7 +16,7 @@ class TvshowController extends Controller
     {
         return view('tvshow.index', [
             'title' => 'halaman tvshow',
-            'tvshow' => daftar_tvshow::all()->sortBy('created_at')
+            'tvshow' => daftar_tvshow::join('daftar_menus', 'daftar_menus.id_menu', '=', 'daftar_tvshows.id_menu')->get()
         ]);
     }
 
@@ -47,6 +47,7 @@ class TvshowController extends Controller
             'batasan_umur_tvshow' => 'required | numeric',
             'cover_tvshow' => 'image | file | max:1024',
             'description_tvshow' => 'required',
+            'komentar_tvshow' => 'required',
             'id_director' => 'required',
             'id_pemain' => 'required',
             'id_episode' => 'required',
@@ -88,6 +89,7 @@ class TvshowController extends Controller
             'batasan_umur_tvshow' => 'required | numeric',
             'cover_tvshow' => 'image | file | max:1024',
             'description_tvshow' => 'required',
+            'komentar_tvshow' => 'required',
             'id_director' => 'required',
             'id_pemain' => 'required',
             'id_episode' => 'required',

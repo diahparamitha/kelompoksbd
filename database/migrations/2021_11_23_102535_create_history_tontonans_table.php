@@ -30,3 +30,4 @@ class CreateHistoryTontonansTable extends Migration
         Schema::dropIfExists('history_tontonans');
     }
 }
+ 

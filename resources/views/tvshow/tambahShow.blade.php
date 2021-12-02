@@ -104,6 +104,16 @@
           </div>
 
           <div class="mb-3">
+            <label for="komentar_tvshow" class="form-label">Komentar</label>
+            <input type="text" class=" resizedbox form-control @error('komentar_tvshow') is-invalid @enderror " id="komentar_tvshow" name="komentar_tvshow" autofocus="" required="" value="{{ old('komentar_tvshow') }}">
+             @error('komentar_tvshow') <!-- kalau user salah memasukkan data akan muncul pesan eror -->
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+
+          <div class="mb-3">
             <label for="cover_tvshow" class="form-label">Cover</label>
             <img class="img-preview img-fluid mb-3 col-sm-5">
             <input class="form-control @error('cover_tvshow') is-invalid @enderror " type="file" id="cover_tvshow" name="cover_tvshow" onchange="previewImage()">

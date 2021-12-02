@@ -17,7 +17,7 @@ class CreateDaftarkusTable extends Migration
             $table->increments('id_daftarku');
             $table->unsignedBigInteger('id_film')->references('id')->on('daftar_films')->onDelete('restrict');
             $table->unsignedBigInteger('id_tvshow')->references('id')->on('daftar_tvshows')->onDelete('restrict');
-            $table->unsignedBigInteger('id_sports')->references('id')->on('daftar_sports')->onDelete('restrict');
+            $table->unsignedBigInteger('id_user')->references('id')->on('Users')->onDelete('restrict');
             $table->timestamps();
         });
     }

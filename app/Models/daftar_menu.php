@@ -9,6 +9,8 @@ class daftar_menu extends Model
 {
     use HasFactory;
 
+     protected $guarded = ['id_menu'];
+
      protected $primaryKey = 'id_menu'; 
 
      public function daftar_tvshow()

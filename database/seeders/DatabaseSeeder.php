@@ -21,10 +21,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(5)->create();
         \App\Models\daftar_tvshow::factory(3)->create();
        \App\Models\daftar_film::factory(3)->create();
-       \App\Models\genre_tvshow::factory(3)->create();
-       \App\Models\pemain_tvshow_film::factory(3)->create();
 
-        /*daftar_menu::create([
+        daftar_menu::create([
             'nama_menu' => 'Pilihan'
         ]);
 
@@ -74,7 +72,7 @@ class DatabaseSeeder extends Seeder
 
              daftar_episode::create([
             'no_episode' => '2'
-        ]);*/
+        ]);
 
         
     }

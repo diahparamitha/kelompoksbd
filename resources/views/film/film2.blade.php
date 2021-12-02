@@ -7,7 +7,7 @@
 		<tr>
 		    <td rowspan="2">
 				<img src= "/images/film/{{ $film->cover_film }}" style= "height: 250px; width: 185px; overflow: hidden;" alt="{{ $film->judul_film}}">
-			</td>  
+			</td> 
 		</tr>
 		<tr>
 		    <td></td>
@@ -32,12 +32,14 @@
 		        </p>
 		        <p> <strong>Sutradara :</strong> {{ $film->daftar_director->nama_director}}</p>
 		        <p> <strong>Pemain :</strong> {{ $film->daftar_pemain->nama_pemain }} </p>
+		        <a href="/daftarku" class="btn btn-primary">Daftarku</a>
 		    </td>
 		</tr>
-		<tr>
-			<td><a href="/daftarku" class="btn btn-primary">Daftarku</a></td>
-		</tr>
 		</table>
+		<div class="container px-3 mt-5">
+			<p><strong>Komentar :</strong></p>
+		<p> {{ $film->komentar_film }} </p>
+		</div>
 	</div>
 	
 @endsection

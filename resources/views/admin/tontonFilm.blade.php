@@ -4,7 +4,7 @@
 
 @include('layouts/partials/navbar')
 
-	<div class="container">
+	<div class="container mx-3">
 
     @if(session()->has('success')) 
       <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
@@ -20,12 +20,12 @@
       </div>
     @endif
 
-    <!-- @if(session()->has('edit'))
+    @if(session()->has('edit'))
       <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         {{ session('edit') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
       </div>
-    @endif -->
+    @endif
 
 	  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 	        <h1 class="h2">Welcome admin {{ auth()->user()->nama }} !</h1>
@@ -54,7 +54,7 @@
               <td>{{ $film->daftar_pemain->nama_pemain}}</td>
                <td>
                 <a href="/film-info/{{ $film->id_film }}" class="badge bg-info text-decoration-none"><span data-feather="eye"></span>Lihat</a>
-                <a href="" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span>Edit</a>
+                <a href="/film-info/edit/{{ $film->id_film }}" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span>Edit</a>
                 <form action="/film-info/delete/{{ $film->id_film }}" method="post" class="d-inline">
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Hapus film {{ $film->judul_film}} ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>

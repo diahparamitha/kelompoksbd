@@ -111,7 +111,7 @@
             @enderror
           </div>
           
-          <button type="submit" class="btn btn-primary">tambah data tvshow</button>
+          <button type="submit" class="btn btn-primary">tambah data film</button>
         </form>
 		</div>
 	</div>

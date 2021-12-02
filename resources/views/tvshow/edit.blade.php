@@ -104,6 +104,16 @@
           </div>
 
           <div class="mb-3">
+            <label for="komentar_tvshow" class="form-label">Komentar</label>
+            <input type="text" class=" resizedbox form-control @error('komentar_tvshow') is-invalid @enderror " id="komentar_tvshow" name="komentar_tvshow" autofocus="" required="" value="{{ old('komentar_tvshow', $tvshow->komentar_tvshow) }}">
+             @error('komentar_tvshow') <!-- kalau user salah memasukkan data akan muncul pesan eror -->
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+
+          <div class="mb-3">
             <label for="cover_tvshow" class="form-label">Cover</label>
             <input type="hidden" name="cover_tvshowLama" value="{{ $tvshow->cover_tvshow }}">
             @if($tvshow->cover_tvshow)

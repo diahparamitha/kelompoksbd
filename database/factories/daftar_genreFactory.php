@@ -14,7 +14,9 @@ class daftar_genreFactory extends Factory
     public function definition()
     {
         return [
-            'nama_genre' => $this->faker->randomElement(['drama', 'mystery', 'thriller', 'horror', 'comedy', 'romantic', 'family', 'action', 'fantasy', 'adventure']),
+            /*'nama_genre' => $this->faker->randomElement(['drama', 'mystery', 'thriller']),
+            'id_tvshow' => mt_rand(1,3),
+            'id_film' => mt_rand(1,3),*/
         ];
     }
 }

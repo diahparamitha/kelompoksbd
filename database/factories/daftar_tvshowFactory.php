@@ -18,6 +18,7 @@ class daftar_tvshowFactory extends Factory
             'batasan_umur_tvshow' => $this->faker->numberBetween($min = 13, $max = 19),
             'cover_tvshow' => $this->faker->imageUrl($width = 185, $height = 278),
             'description_tvshow' => $this->faker->sentence(mt_rand(10,20)),
+            'komentar_tvshow' => $this->faker->sentence(mt_rand(10,20)),
             'id_director' => mt_rand(1,2),
             'id_pemain' => mt_rand(1,2),
             'id_episode' => mt_rand(1,2),

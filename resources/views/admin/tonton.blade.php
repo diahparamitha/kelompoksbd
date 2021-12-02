@@ -4,7 +4,7 @@
 
 @include('layouts/partials/navbar')
 
-	<div class="container">
+	<div class="container mx-3">
 
     @if(session()->has('success')) <!-- pesan dari DashboardPostController php line 59 -->
       <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
@@ -30,7 +30,7 @@
 	  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 	        <h1 class="h2">Welcome admin {{ auth()->user()->nama }} !</h1>
 	      </div>
-	      <h3>Data Pengguna</h3>
+	      <h3>Data Tvshow</h3>
         <p><a href="/tvshow/tambah" class="btn btn-primary">Tambah data tvshow</a></p>
 
 	       <table class="table table-striped table-sm mt-3">
@@ -49,11 +49,11 @@
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $tonton->judul_tvshow}}</td>
-              <td>{{ $tonton->nama_menu}}</td>
-              <td>{{ $tonton->nama_genre}}</td>
-              <td align="center">{{ $tonton->no_episode}}</td>
-              <td>{{ $tonton->nama_director}}</td>
-              <td>{{ $tonton->nama_pemain}}</td>
+              <td>{{ $tonton->daftar_menu->nama_menu}}</td>
+              <td>{{ $tonton->daftar_genre->nama_genre}}</td>
+              <td align="center">{{ $tonton->daftar_episode->no_episode}}</td>
+              <td>{{ $tonton->daftar_director->nama_director}}</td>
+              <td>{{ $tonton->daftar_pemain->nama_pemain}}</td>
                <td>
                 <a href="/tvshow-info/{{ $tonton->id_tvshow }}" class="badge bg-info text-decoration-none"><span data-feather="eye"></span>Lihat</a>
                 <a href="/tvshow-info/edit/{{ $tonton->id_tvshow }}" class="badge bg-warning text-decoration-none"><span data-feather="edit"></span>Edit</a>
@@ -62,7 +62,7 @@
                   <button class="badge bg-danger border-0" onclick="return confirm('Hapus tvshow {{ $tonton->judul_tvshow}} ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>
                 </form>
               </td>
-            </tr>
+            </tr> 
             @endforeach
           </thead>
           <tbody>

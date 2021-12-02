@@ -15,7 +15,12 @@ class daftar_director extends Model
 
     public function daftar_tvshow()
     {
-        return $this->belongsTo(daftar_tvshow::class);    
+        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    
+    }
+
+    public function daftar_film()
+    {
+        return $this->hasMany('App\Models\daftar_film', 'id_film');    
     }
 
 }

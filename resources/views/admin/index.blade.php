@@ -4,7 +4,7 @@
 
 @include('layouts/partials/navbar')
 
-	<div class="container">
+	<div class="container mx-3">
     
     @if(session()->has('delete')) <!-- pesan dari DashboardPostController php line 59 -->
       <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
@@ -28,14 +28,16 @@
               <th scope="col">Tanggal daftar</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($users->skip(1) as $user)
+            @foreach($users as $user)
             <tr>        
-              <td valign="top">{{$loop->iteration}}</td>
-              <td valign="top">{{$user->nama}}</td>
-              <td valign="top">{{$user->noHp}}</td>
+              <td valign="middle">{{$loop->iteration}}</td>
+              <td valign="middle">{{$user->nama}}</td>
+              <td valign="middle">{{$user->noHp}}</td>
               <td><img src=" /images/{{ $user->foto }} " height="200px" width="200px"></td>
-              <td valign="top">{{$user->created_at->diffForHumans()}}</td>
-               <td valign="top">
+              <td valign="middle">{{$user->created_at->diffForHumans()}}</td>
+               <td valign="middle">
+                <a class="badge bg-primary text-decoration-none" href="/user/{{$user->id}}">Lihat</a>
+                <a href="/user/edit/{{$user->id}}" class="badge bg-warning text-decoration-none">Edit</a>
                 <form action="/user/delete/{{$user->id}}" method="post" class="d-inline">
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Hapus data akun {{ $user->nama }} ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>

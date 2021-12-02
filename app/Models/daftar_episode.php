@@ -13,9 +13,9 @@ class daftar_episode extends Model
 
     protected $primaryKey = 'id_episode'; 
 
-    public function tvshow()
+     public function daftar_tvshow()
     {
-        return $this->belongsTo(daftar_tvshowe::class);    
+        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    
     }
 
 }

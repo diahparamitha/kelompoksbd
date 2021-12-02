@@ -7,8 +7,6 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/" class="nav-link px-2 link-dark {{ Request::is('/*') ? 'active' : ''}}" style="font-size: 17px;">Home</a></li>
-          <li><a href="/live" class="nav-link px-2 link-dark {{ Request::is('live*') ? 'active' : ''}}" style="font-size: 17px;">Live</a></li>
-          <li><a href="/sports" class="nav-link px-2 link-dark {{ Request::is('sports*') ? 'active' : ''}}" style="font-size: 17px;">Sports</a></li>
           <li><a href="/tvshow" class="nav-link px-2 link-dark {{ Request::is('tvshow*') ? 'active' : ''}}" style="font-size: 17px;">Tvshow</a></li>
           <li><a href="/film" class="nav-link px-2 link-dark {{ Request::is('film*') ? 'active' : ''}}" style="font-size: 17px;">Film</a></li>
         </ul>

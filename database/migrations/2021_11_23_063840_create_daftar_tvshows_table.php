@@ -19,6 +19,7 @@ class CreateDaftarTvshowsTable extends Migration
             $table->string('batasan_umur_tvshow');
             $table->string('cover_tvshow')->nullable();
             $table->text('description_tvshow');
+            $table->text('komentar_tvshow');
             $table->bigInteger('id_director')->unsigned()->references('id')->on('daftar_directors')->onDelete('restrict');
             $table->bigInteger('id_pemain')->unsigned()->references('id')->on('daftar_pemains')->onDelete('restrict');
             $table->bigInteger('id_episode')->unsigned()->references('id')->on('daftar_episodes')->onDelete('restrict');

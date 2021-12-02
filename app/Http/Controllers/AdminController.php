@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\daftar_tvshow;
 use App\Models\daftar_film;
+use App\Models\genre_tvshows;
 
 class AdminController extends Controller
 {
@@ -21,12 +22,7 @@ class AdminController extends Controller
     {
         return view('admin.tonton', [
             'title' => 'data tontonan',
-            'tontonan' => daftar_tvshow::join('daftar_genres', 'daftar_genres.id_genre', '=', 'daftar_tvshows.id_genre')
-                                     ->join('daftar_pemains', 'daftar_pemains.id_pemain', '=', 'daftar_tvshows.id_pemain')
-                                     ->join('daftar_menus', 'daftar_menus.id_menu', '=', 'daftar_tvshows.id_menu')
-                                     ->join('daftar_episodes', 'daftar_episodes.id_episode', '=', 'daftar_tvshows.id_episode')
-                                     ->join('daftar_directors', 'daftar_directors.id_director', '=', 'daftar_tvshows.id_director')
-                                     ->get()
+            'tontonan' => daftar_tvshow::all()
         ]);
     }
 

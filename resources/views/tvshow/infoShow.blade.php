@@ -37,6 +37,10 @@
 		    </td>
 		</tr>
 		</table>
+		<div class="container px-3 mt-5">
+			<p><strong>Komentar :</strong></p>
+		<p> {{ $tvshow->komentar_tvshow }} </p>
+		</div>
 	</div>
 	
 @endsection

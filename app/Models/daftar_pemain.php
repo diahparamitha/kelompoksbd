@@ -13,9 +13,14 @@ class daftar_pemain extends Model
 
     protected $primaryKey = 'id_pemain'; 
 
-    public function tvshow()
+     public function daftar_tvshow()
     {
-        return $this->hasMany(daftar_tvshowe::class);    
+        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    //satu satu tvshow memiliki satu genre
+    }
+
+    public function daftar_film()
+    {
+        return $this->hasMany('App\Models\daftar_film', 'id_film');    //satu satu tvshow memiliki satu genre
     }
 
 }

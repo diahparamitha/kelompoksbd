@@ -7,6 +7,11 @@ use App\Http\Controllers\FilmController;
 use App\Http\Controllers\TvshowController;
 use App\Http\Controllers\daftarkuController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\DirectorController;
+use App\Http\Controllers\PemainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +47,8 @@ Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
 Route::get('/film-info/{id}', [FilmController::class, 'film2']);
 Route::get('/film/tambah', [FilmController::class, 'tambahFilm'])->middleware('admin');
 Route::post('/film/tambah', [FilmController::class, 'tambahFilm1']);
+Route::get('/film-info/edit/{id}', [FilmController::class, 'edit']);
+Route::post('/film-info/update/{id}', [FilmController::class, 'update']);
 Route::post('/film-info/delete/{id}', [FilmController::class, 'delete']);
 
 //Halaman tvshow
@@ -53,6 +60,37 @@ Route::get('/tvshow-info/edit/{id}', [TvshowController::class, 'edit']);
 Route::post('/tvshow-info/delete/{id}', [TvshowController::class, 'delete']);
 Route::post('/tvshow-info/update/{id}', [TvshowController::class, 'update']);
 
+//Halaman genre
+Route::get('/genre', [GenreController::class, 'index']);
+Route::post('/genre/tambah', [GenreController::class, 'tambah']);
+Route::get('/genre/edit/{id}', [GenreController::class, 'edit']);
+Route::post('/genre/update/{id}', [GenreController::class, 'update']);
+
+//Halaman menu
+Route::get('/menu', [MenuController::class, 'index']);
+Route::post('/menu/tambah', [MenuController::class, 'tambah']);
+Route::get('/menu/edit/{id}', [MenuController::class, 'edit']);
+Route::post('/menu/update/{id}', [MenuController::class, 'update']);
+
+//Halaman episode
+Route::get('/episode', [EpisodeController::class, 'index']);
+Route::post('/episode/tambah', [EpisodeController::class, 'tambah']);
+Route::get('/episode/edit/{id}', [EpisodeController::class, 'edit']);
+Route::post('/episode/update/{id}', [EpisodeController::class, 'update']);
+
+//Halaman director
+Route::get('/director', [DirectorController::class, 'index']);
+Route::post('/director/tambah', [DirectorController::class, 'tambah']);
+Route::get('/director/edit/{id}', [DirectorController::class, 'edit']);
+Route::post('/director/update/{id}', [DirectorController::class, 'update']);
+
+//Halaman pemain
+Route::get('/pemain', [PemainController::class, 'index']);
+Route::post('/pemain/tambah', [PemainController::class, 'tambah']);
+Route::get('/pemain/edit/{id}', [PemainController::class, 'edit']);
+Route::post('/pemain/update/{id}', [PemainController::class, 'update']);
+
 //Halaman daftarku
 Route::get('/daftarku', [daftarkuController::class, 'daftarku']);
+/*Route::post('/daftarku/tambah/{id}', [daftarkuController::class, 'tambahdaftarku']);*/
 
