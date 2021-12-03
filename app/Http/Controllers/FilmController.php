@@ -109,4 +109,26 @@ class FilmController extends Controller
 
         return redirect('/data-tontonan/film')->with('delete', 'data film berhasil dihapus');
     }
+
+    public function film()
+    {
+        $film = Film::latest();
+
+        if(request('cari')) {
+            $film->where('judul_film', 'like' , '%' . request('cari') . '%');
+        }
+
+        return view('film', [
+            "judul_film" => "All Film",
+            "film" => $film->get()
+
+        ]);
+
+        // //filter diambil dari model pasien untuk melakukan searching
+        // return view('film.index', [
+        //     'title' => 'Film',
+        //     'film' => daftar_film::orderBy('judul_film')->filter(request(['cari']))->paginate(7)->withQueryString()
+        // ]);
+    }
+
 }

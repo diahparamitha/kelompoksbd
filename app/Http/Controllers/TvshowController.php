@@ -114,4 +114,19 @@ class TvshowController extends Controller
 
         return redirect('/data-tontonan')->with('delete', 'data tvshow berhasil dihapus');
     }
+
+    public function tvshow()
+    {
+        $tvshow = Tvshow::latest();
+
+        if(request('cari')) {
+            $tvshow->where('judul_tvshow', 'like' , '%' . request('cari') . '%');
+        }
+
+        return view('tvshow', [
+            "judul_tvshow" => "All tvshow",
+            "tvshow" => $tvshow->get()
+
+        ]);
+    }
 }

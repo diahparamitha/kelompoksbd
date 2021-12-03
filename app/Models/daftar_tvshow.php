@@ -38,5 +38,22 @@ class daftar_tvshow extends Model
         return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    //satu satu tvshow memiliki satu menu
     }
 
+     //penggunaan variabel scope untuk pencarian di halaman pasien mealalui nama dan tulisan
+     public function scopeFilter($query, array $filters)
+     {
+         $query->when($filters['cari'] ?? false, function ($query, $cari) {
+             return $query->where(function ($query) use ($cari) {
+                 $query->where('judul_tvshow', 'like', '%' . $cari . '%');
+             });
+         });
+     }
 
+     public function tvshow()
+    {
+        //filter diambil dari model pasien untuk melakukan searching
+        return view('tvshow.index', [
+            'title' => 'TV Show',
+            'daftar_tvshow' => daftar_tvshow::orderBy('judul_tvshow')->filter(request(['cari']))->paginate(7)->withQueryString()
+        ]);
+    }
 }
