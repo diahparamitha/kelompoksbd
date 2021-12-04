@@ -12,6 +12,7 @@ class PemainController extends Controller
         return view('admin.pemain.index', [
             'title' => 'daftar pemain',
             'pemain' => daftar_pemain::all()
+            //SELECT * FROM daftar_pemains
         ]);
     }
 
@@ -22,6 +23,8 @@ class PemainController extends Controller
         ]);
 
           daftar_pemain::create($pemain);
+          //INSERT INTO daftar_pemains ('id_pemain', 'nama_pemain') VALUES ($id_pemain, $nama_pemain) 
+          //                        WHERE nama_pemain != daftar_pemains['nama_pemain']
           return redirect('/pemain')->with('success', 'Pemeran sudah ditambahkan!');
         
     }
@@ -33,6 +36,7 @@ class PemainController extends Controller
         return view('admin.pemain.edit', [
             'pemain' => $pemain,
             'title' => 'edit pemain'
+            //SELECT * FROM daftar_pemains WHERE id_pemain = $id_pemain LIMIT 1
         ]);
     }
 
@@ -41,6 +45,7 @@ class PemainController extends Controller
         $pemain = daftar_pemain::find($id);
         $pemain->update($request->all());
         $pemain->save();
+        //UPDATE daftar_menus SET id_menu = $id_menu
 
         return redirect('/pemain')->with('edit', 'Pemeran berhasil di update!');
 

@@ -12,6 +12,7 @@ class GenreController extends Controller
         return view('admin.genre.index', [
             'title' => 'genre',
             'genre' => daftar_genre::all()
+            //SELECT * FROM daftar_genre
         ]);
     }
 
@@ -22,6 +23,8 @@ class GenreController extends Controller
         ]);
 
           daftar_genre::create($genre);
+          //INSERT INTO daftar_genre ('id_genre', 'nama_genre') VALUES ($id_genre, $nama_genre) 
+          //                        WHERE nama_genre != daftar_genres['nama_genre']
           return redirect('/genre')->with('success', 'Genre sudah ditambahkan!');
         
     }
@@ -33,6 +36,7 @@ class GenreController extends Controller
         return view('admin.genre.edit', [
             'genre' => $genre,
             'title' => 'edit genre'
+            //SELECT * FROM daftar_genres WHERE id_genre = $id_genre LIMIT 1
         ]);
     }
 
@@ -41,6 +45,7 @@ class GenreController extends Controller
         $genre = daftar_genre::find($id);
         $genre->update($request->all());
         $genre->save();
+        //UPDATE daftar_genres SET id_genre = $id_genre
 
         return redirect('/genre')->with('edit', 'Genre berhasil di update!');
     }

@@ -15,7 +15,8 @@ class daftar_episode extends Model
 
      public function daftar_tvshow()
     {
-        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    
+        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow'); 
+        //satu episode dimiliki oleh banyak daftar_tvshow   
     }
 
 }

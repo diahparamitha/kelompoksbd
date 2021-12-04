@@ -44,6 +44,7 @@ class UserController extends Controller
          $regist['password'] = bcrypt($regist['password']);    //Meng-enkripsi password
 
           User::create($regist);
+          //INSERT INTO users ('id', 'nama', 'tanggal_lahir', 'jenisKelamin', 'noHP', 'foto', 'email', 'password') VALUES ($id, $nama, $tanggal_lahir, $jenisKelamin, $noHP, $foto, $email, $password) WHERE 'email' != users['email']
           return redirect('/login')->with('login', ' Berhasil daftar, Silahkan Login!');
         
     }
@@ -71,6 +72,8 @@ class UserController extends Controller
             return view('user.detail', [
                 'user' => $users,
                 'title' => 'detail profil']);
+
+            //SELECT * FROM users WHERE 'id' = users['id']
        }
 
         public function logoutAkun(Request $request) //untuk logout
@@ -91,6 +94,8 @@ class UserController extends Controller
             return view('user.update', [
                 'users' => $users,
                 'title' => 'edit profil']);
+
+            //SELECT * FROM users WHERE id = $users
         }
 
          public function update(Request $request, $id)
@@ -111,6 +116,8 @@ class UserController extends Controller
             $request->file('foto')->move('images/', $request->file('foto')->getClientOriginalName());
             $users->foto = $request->file('foto')->getClientOriginalName();
             $users->save();
+
+            //UPDATE users SET id = $users
         }
             return redirect('/')->with('edit', ' Profil berhasil diedit!');
        }
@@ -119,6 +126,7 @@ class UserController extends Controller
        {
             $user = User::find($id);
             $user->delete();
+            //DELETE users WHERE id = $user
 
             return redirect('/admin')->with('delete', 'akun user berhasil dihapus');
        }

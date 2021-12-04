@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\daftar_film;
 use App\Models\daftar_menu;
 use App\Models\daftar_genre;
@@ -14,8 +15,9 @@ class FilmController extends Controller
     public function index()
     {
         return view('film.index', [
-            'title' => 'halaman film' ,
-            'film' => daftar_film::join('daftar_menus', 'daftar_menus.id_menu', '=', 'daftar_films.id_menu')->get()
+            'title' => 'halaman film',
+            'films' => daftar_film::latest()->filter(request(['judul_film']))->paginate(8)
+            //SELECT * FROM daftar_films WHERE 'judul_film' LIKE' '%' .$request['judul_film']. '%' ORDER BY DESC 
         ]);
     }
 
@@ -24,6 +26,7 @@ class FilmController extends Controller
         return view('film.film2', [
             'title' => 'halaman film' ,
             'film' => daftar_film::find($id)
+            //SELECT * FROM daftar_films WHERE 'id_film' = daftar_films['id_film']
         ]);
     }
 
@@ -36,6 +39,10 @@ class FilmController extends Controller
             'director' => daftar_director::all(),
             'pemain' => daftar_pemain::all(),
         ]);
+        // SELECT * FROM daftar_films JOIN daftar_menus ON daftar_films.id_menu = daftar_menus.id menu
+        //                            JOIN daftar_genres ON daftar_films.id_genre = daftar_genres.id_genre
+        //                            JOIN daftar_directors ON daftar_films.id_director = daftar_directors.id_director
+        //                            JOIN daftar_pemains ON daftar_films.id_pemain = daftar_pemains.id_pemain
     }
 
     public function tambahFilm1(Request $request)
@@ -43,7 +50,7 @@ class FilmController extends Controller
         $data = $request->validate([
             'judul_film' => 'required | max:100',
             'batasan_umur_film' => 'required | numeric',
-            'cover_film' => 'image | file | max:1024',
+            'cover_film' => 'image | file',
             'description_film' => 'required', 
             'komentar_film' => 'required', 
             'id_director' => 'required',
@@ -59,6 +66,7 @@ class FilmController extends Controller
         }
 
         daftar_film::create($data);
+        //INSERT INTO daftar_films ('id_film', 'judul_film', 'batasan_umur_film', 'cover_film', 'description_film', 'komentar_film', 'id_director', 'id_pemain', 'id_genre', 'id_menu') VALUES ($id_film, $judul_film, $batasan_umur_film, $cover_film, $description_film, $komentar_film, daftar_directors['id_director'], daftar_pemains['id_pemain'], daftar_genres['id_genre'], daftar_menus['id_menu']);
           return redirect('/data-tontonan/film')->with('success', ' Film berhasil ditambah!');
 
     }
@@ -75,6 +83,11 @@ class FilmController extends Controller
             'director' => daftar_director::all(),
             'pemain' => daftar_pemain::all(),
         ]);
+        // SELECT * FROM daftar_films JOIN daftar_menus ON daftar_films.id_menu = daftar_menus.id menu
+        //                            JOIN daftar_genres ON daftar_films.id_genre = daftar_genres.id_genre
+        //                            JOIN daftar_directors ON daftar_films.id_director = daftar_directors.id_director
+        //                            JOIN daftar_pemains ON daftar_films.id_pemain = daftar_pemains.id_pemain
+        //                            WHERE id_film = $film
     }
 
     public function update(Request $request, $id)
@@ -83,7 +96,7 @@ class FilmController extends Controller
         $film->update($request->validate([
             'judul_film' => 'required | max:100',
             'batasan_umur_film' => 'required | numeric',
-            'cover_film' => 'image | file | max:1024',
+            'cover_film' => 'image | file',
             'description_film' => 'required',
             'komentar_film' => 'required',
             'id_director' => 'required',
@@ -98,6 +111,7 @@ class FilmController extends Controller
             $film->cover_film = $request->file('cover_film')->getClientOriginalName();
             $film->save();
         }
+        //UPDATE daftar_films SET id_film = $film
 
         return redirect('/data-tontonan/film')->with('edit', ' data film berhasil diedit!');
     }
@@ -106,29 +120,9 @@ class FilmController extends Controller
     {
         $film = daftar_film::find($id);
         $film->delete();
+        //DELETE daftar_films WHERE id_film = $film
 
         return redirect('/data-tontonan/film')->with('delete', 'data film berhasil dihapus');
-    }
-
-    public function film()
-    {
-        $film = Film::latest();
-
-        if(request('cari')) {
-            $film->where('judul_film', 'like' , '%' . request('cari') . '%');
-        }
-
-        return view('film', [
-            "judul_film" => "All Film",
-            "film" => $film->get()
-
-        ]);
-
-        // //filter diambil dari model pasien untuk melakukan searching
-        // return view('film.index', [
-        //     'title' => 'Film',
-        //     'film' => daftar_film::orderBy('judul_film')->filter(request(['cari']))->paginate(7)->withQueryString()
-        // ]);
     }
 
 }

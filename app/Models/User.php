@@ -40,11 +40,11 @@ class User extends Authenticatable
 
     public function history()
     {
-        return $this->hasMany('App\Models\history_tontonan', 'id_history_tontonan');
+        return $this->hasMany('App\Models\history_tontonan', 'id_history_tontonan'); //satu user memiliki banyak history tontonan
     }
 
     public function daftarku()
     {
-        return $this->hasMany('App\Models\daftarku', 'id_daftarku');
+        return $this->hasMany('App\Models\daftarku', 'id_daftarku'); //satu user memiliki banyak daftarku
     }
 }

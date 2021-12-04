@@ -15,30 +15,30 @@ class daftar_film extends Model
 
     public function daftar_genre()
    {
-       return $this->belongsTo('App\Models\daftar_genre', 'id_genre');    //satu satu tvshow memiliki satu genre
+       return $this->belongsTo('App\Models\daftar_genre', 'id_genre');    //satu film memiliki satu genre
    }
 
    public function daftar_director()
    {
-       return $this->belongsTo('App\Models\daftar_director', 'id_director');    //satu satu tvshow memiliki satu genre
+       return $this->belongsTo('App\Models\daftar_director', 'id_director');    //satu film memiliki satu director
    }
 
    public function daftar_pemain()
    {
-       return $this->belongsTo('App\Models\daftar_pemain', 'id_pemain');    //satu satu tvshow memiliki satu genre
+       return $this->belongsTo('App\Models\daftar_pemain', 'id_pemain');    //satu  film memiliki satu pemain
    }
 
    public function daftar_menu()
    {
-       return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    //satu satu tvshow memiliki satu menu
+       return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    //satu  film memiliki satu menu
    }
 
-    //penggunaan variabel scope untuk pencarian di halaman pasien mealalui nama dan tulisan
-    public function scopeFilter($query, array $filters)
+    //penggunaan variabel scope untuk pencarian di halaman film mealalui judul_film 
+   public function scopeFilter($query, array $filters)
     {
-        $query->when($filters['cari'] ?? false, function ($query, $cari) {
-            return $query->where(function ($query) use ($cari) {
-                $query->where('judul_film', 'like', '%' . $cari . '%');
+        $query->when($filters['judul_film'] ?? false, function ($query, $judul_film) {
+            return $query->where(function ($query) use ($judul_film) {
+                $query->where('judul_film', 'like', '%' . $judul_film . '%');
             });
         });
     }

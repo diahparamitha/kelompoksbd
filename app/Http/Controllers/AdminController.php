@@ -15,6 +15,7 @@ class AdminController extends Controller
         return view('admin.index', [
             'title' => 'halaman admin',
             'users' => User::all()
+            //SELECT * FROM user;
         ]);
     }
 
@@ -23,6 +24,7 @@ class AdminController extends Controller
         return view('admin.tonton', [
             'title' => 'data tontonan',
             'tontonan' => daftar_tvshow::all()
+            //SELECT * FROM daftar_tvshow;
         ]);
     }
 
@@ -31,6 +33,7 @@ class AdminController extends Controller
         return view('admin.tontonFilm', [
             'title' => 'data tontonan',
             'film' => daftar_film::all()
+            //SELECT * FROM daftar_film;
         ]);
     }
 }

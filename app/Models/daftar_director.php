@@ -15,12 +15,14 @@ class daftar_director extends Model
 
     public function daftar_tvshow()
     {
-        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    
+        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow'); 
+        //satu director dimiliki oleh banyak daftar_tvshow
     }
 
     public function daftar_film()
     {
-        return $this->hasMany('App\Models\daftar_film', 'id_film');    
+        return $this->hasMany('App\Models\daftar_film', 'id_film');   
+        //satu director dimiliki oleh banyak daftar_film 
     }
 
 }

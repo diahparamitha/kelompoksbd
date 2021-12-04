@@ -10,14 +10,10 @@
           <li><a href="/tvshow" class="nav-link px-2 link-dark {{ Request::is('tvshow*') ? 'active' : ''}}" style="font-size: 17px;">Tvshow</a></li>
           <li><a href="/film" class="nav-link px-2 link-dark {{ Request::is('film*') ? 'active' : ''}}" style="font-size: 17px;">Film</a></li>
         </ul>
-
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control" placeholder="Search..."  name="cari" value="{{ request('cari') }}">
-        </form>
-
+        
         @auth
         <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">{{ auth()->user()->nama }}
             <i class='bx bxs-user bx-sm'></i>
           </a>
             @can('admin')
