@@ -17,12 +17,12 @@ class daftarku extends Model
 
     public function daftar_tvshow()
     {
-        return $this->hasMany('App\Models\daftar_tvshow', 'id_tvshow');    //satu daftarku memiliki banyak tvshow
+        return $this->belongsTo('App\Models\daftar_tvshow', 'id_tvshow');    //satu daftarku memiliki banyak tvshow
     }
 
     public function daftar_film()
     {
-        return $this->hasMany('App\Models\daftar_film', 'id_film');    //satu daftarku memiliki banyak film
+        return $this->belongsTo('App\Models\daftar_film', 'id_film');    //satu daftarku memiliki banyak film
     }
 
     public function user()

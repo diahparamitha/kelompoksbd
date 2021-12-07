@@ -9,6 +9,8 @@ use App\Models\daftar_genre;
 use App\Models\daftar_director;
 use App\Models\daftar_pemain;
 use App\Models\daftar_episode;
+use App\Models\history_tontonan;
+use Illuminate\Support\Facades\Auth;
 
 class TvshowController extends Controller
 {
@@ -21,13 +23,35 @@ class TvshowController extends Controller
         ]);
     }
 
-    public function infoShow($id)
+    public function infoShow(daftar_tvshow $daftar_tvshow)
     {
-        return view('tvshow.infoShow', [
+       
+        $title = 'halaman tvshow';
+        $tonton = false;
+        $tvshow = daftar_tvshow::find($daftar_tvshow->id_tvshow);
+        $history = history_tontonan::Where('id_user', Auth::user()->id)->where('id_tvshow', $daftar_tvshow->id_tvshow)->first();
+             $history ? $tonton = true : history_tontonan::create([
+            'id_user' => Auth::user()->id,
+            'id_tvshow' => $daftar_tvshow->id_tvshow
+        ]);
+
+        return view('tvshow.infoShow', compact('tvshow', 'tonton', 'title'));
+
+        /*return view('tvshow.infoShow', [
             'title' => 'halaman tvshow',
             'tvshow' => daftar_tvshow::find($id)
+        ]);*/
             //SELECT * FROM daftar_tvshows WHERE 'id_tvshows' = daftar_tvshows['id_tvshows']
+        
+
+        /*$tonton = false;
+        $tvshow = daftar_tvshow::find($daftar_tvshow->id_tvshow);
+        $history = history_tontonan::Where('id_user', Auth::user()->id)->where('id_tvshow', $daftar_tvshow->id_tvshow)->first();
+        $history ? $tonton = true : history_tontonan::create([
+            'user_id' => Auth::user()->id,
+            'tvshow' => $daftar_tvshow->id_tvshow
         ]);
+        return view('tvshow.infoShow', compact('tvshow', 'tonton'));*/
     }
 
     public function tambahShow()

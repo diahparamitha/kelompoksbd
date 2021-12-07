@@ -44,7 +44,7 @@ Route::get('/data-tontonan/film', [AdminController::class, 'tontonFilm']);
 
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
-Route::get('/film-info/{id}', [FilmController::class, 'film2']);
+Route::get('/film-info/{id}', [FilmController::class, 'film2'])->middleware('auth');
 Route::get('/film/tambah', [FilmController::class, 'tambahFilm'])->middleware('admin');
 Route::post('/film/tambah', [FilmController::class, 'tambahFilm1']);
 Route::get('/film-info/edit/{id}', [FilmController::class, 'edit']);
@@ -53,7 +53,7 @@ Route::post('/film-info/delete/{id}', [FilmController::class, 'delete']);
 
 //Halaman tvshow
 Route::get('/tvshow', [TvshowController::class, 'index'])->middleware('auth');
-Route::get('/tvshow-info/{id}', [TvshowController::class, 'infoShow']);
+Route::get('/tvshow-info/{daftar_tvshow}', [TvshowController::class, 'infoShow'])->middleware('auth');
 Route::get('/tvshow/tambah', [TvshowController::class, 'tambahShow'])->middleware('admin');
 Route::post('/tvshow/tambah', [TvshowController::class, 'tambahShow1']);
 Route::get('/tvshow-info/edit/{id}', [TvshowController::class, 'edit']);
@@ -92,5 +92,6 @@ Route::post('/pemain/update/{id}', [PemainController::class, 'update']);
 
 //Halaman daftarku
 Route::get('/daftarku', [daftarkuController::class, 'daftarku']);
-/*Route::post('/daftarku/tambah/{id}', [daftarkuController::class, 'tambahdaftarku']);*/
-
+Route::get('/history', [daftarkuController::class, 'history']);
+/*Route::get('/daftarku/{id}', [daftarkuController::class, 'tambahdaftarku']);
+*/

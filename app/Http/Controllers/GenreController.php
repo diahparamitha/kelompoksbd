@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\daftar_genre;
+use App\Models\daftar_tvshow;
 
 class GenreController extends Controller
 {
@@ -49,4 +50,11 @@ class GenreController extends Controller
 
         return redirect('/genre')->with('edit', 'Genre berhasil di update!');
     }
+
+    /*public function delete( Request $request, daftar_genre $daftar_genre)
+    {
+        daftar_genre::destroy($daftar_genre);
+
+        return redirect('/genre')->with('delete', 'genre berhasil dihapus');
+    }*/
 }

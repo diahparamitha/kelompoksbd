@@ -22,9 +22,9 @@
 		                <span class="mx-2">|</span>
 		                <span>{{ $tvshow->daftar_genre->nama_genre}}</span>
 		            </div>
-		            <!-- <p>
-		            <div class="p-2 col-2 col-md-2 col-lg-2 bg-secondary text-white">Mulai Nonton</div>
-		            </p> -->
+		            <p>
+<!-- 		            <div class="p-2 col-2 col-md-2 col-lg-2 bg-secondary text-white">Mulai Nonton</div>
+ -->		            </p>
 		        <p>
 		            <p class="desc">
 		               {{ $tvshow->description_tvshow}}
@@ -42,5 +42,6 @@
 		<p> {{ $tvshow->komentar_tvshow }} </p>
 		</div>
 	</div>
+
 	
 @endsection

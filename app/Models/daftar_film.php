@@ -33,6 +33,11 @@ class daftar_film extends Model
        return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    //satu  film memiliki satu menu
    }
 
+    public function daftarku()
+    {
+        return $this->hasMany('App\Models\daftarku', 'id_daftarku'); //satu history tontonan dimiliki oleh satu user
+    }
+
     //penggunaan variabel scope untuk pencarian di halaman film mealalui judul_film 
    public function scopeFilter($query, array $filters)
     {

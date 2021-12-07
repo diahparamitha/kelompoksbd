@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\daftarku;
-use App\Http\Controllers\TvshowController;
+use App\Models\history_tontonan;
 
 
 class daftarkuController extends Controller
@@ -17,8 +17,11 @@ class daftarkuController extends Controller
         ]);
     }
 
-    public function tambahDaftarku($id_tvshow)
+    public function history()
     {
-        
+        return view('user.data.history', [
+            'title' => 'history',
+            'history' => history_tontonan::all()
+        ]);
     }
 }

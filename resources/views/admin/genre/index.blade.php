@@ -20,6 +20,13 @@
       </div>
     @endif
 
+    @if(session()->has('delete')) 
+      <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {{ session('delete') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+      </div>
+    @endif
+
 	  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 	        <h1 class="h2">Welcome admin {{ auth()->user()->nama }} !</h1>
 	      </div>
@@ -41,6 +48,10 @@
               <td>{{ $genre->nama_genre}}</td>
                <td>
                  <a href="/genre/edit/{{ $genre->id_genre }}" class="badge bg-warning text-decoration-none">Edit</a>
+                 <!-- <form action="/genre/delete/{{$genre->id_genre}}" method="post" class="d-inline">
+                  @csrf
+                  <button class="badge bg-danger border-0" onclick="return confirm('Hapus genre {{ $genre->nama_genre }} ?')"><i class='bx bxs-trash bx-sm'></i>Hapus</button>
+                </form> -->
               </td>
             </tr> 
             @endforeach

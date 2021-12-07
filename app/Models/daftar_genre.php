@@ -23,5 +23,12 @@ class daftar_genre extends Model
         return $this->hasMany('App\Models\daftar_film', 'id_film');    //satu film memiliki banyak genre
     }
 
+   /*protected static function booted() { //booted method, no need to call parent boot
+    static::deleting( function ($daftar_genre) {
+    $daftar_genre->daftar_tvshow()->delete();
+    return "deleted";
+  });
+}*/
+
 
 }

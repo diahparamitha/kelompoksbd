@@ -15,27 +15,32 @@ class daftar_tvshow extends Model
 
      public function daftar_genre()
     {
-        return $this->belongsTo('App\Models\daftar_genre', 'id_genre');    //satu tvshow memiliki satu genre
+        return $this->belongsTo('App\Models\daftar_genre', 'id_genre');    
     }
 
     public function daftar_director()
     {
-        return $this->belongsTo('App\Models\daftar_director', 'id_director');    //satu tvshow memiliki satu director
+        return $this->belongsTo('App\Models\daftar_director', 'id_director');    
     }
 
     public function daftar_pemain()
     {
-        return $this->belongsTo('App\Models\daftar_pemain', 'id_pemain');    //satu tvshow memiliki satu pemain
+        return $this->belongsTo('App\Models\daftar_pemain', 'id_pemain');    
     }
 
     public function daftar_episode()
     {
-        return $this->belongsTo('App\Models\daftar_episode', 'id_episode');    //satu tvshow memiliki satu episode (jumlah)
+        return $this->belongsTo('App\Models\daftar_episode', 'id_episode');    
     }
 
     public function daftar_menu()
     {
-        return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    //satu tvshow memiliki satu menu
+        return $this->belongsTo('App\Models\daftar_menu', 'id_menu');    
+    }
+
+     public function daftarku()
+    {
+        return $this->hasMany('App\Models\daftarku', 'id_daftarku'); 
     }
 
 
