@@ -42,7 +42,7 @@
               <th scope="col">Daftar Genre</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($genre as $genre)
+            @foreach($genres as $genre)
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $genre->nama_genre}}</td>
@@ -89,6 +89,11 @@
             </div>
           </div>
         </div>
+
+        <div class="d-flex justify-content-end">
+    {{ $genres->links() }}  <!-- untuk pagination -->
+  </div>
+
 	</div>
 
 @include('layouts/partials/footer')

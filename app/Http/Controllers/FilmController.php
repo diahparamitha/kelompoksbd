@@ -9,6 +9,9 @@ use App\Models\daftar_menu;
 use App\Models\daftar_genre;
 use App\Models\daftar_director;
 use App\Models\daftar_pemain;
+use App\Models\history_tontonan;
+use Illuminate\Support\Facades\Auth;
+
 
 class FilmController extends Controller
 {
@@ -21,13 +24,21 @@ class FilmController extends Controller
         ]);
     }
 
-    public function film2($id)
+    public function film2(daftar_film $daftar_film)
     {
-        return view('film.film2', [
-            'title' => 'halaman film' ,
-            'film' => daftar_film::find($id)
-            //SELECT * FROM daftar_films WHERE 'id_film' = daftar_films['id_film']
+        $title = 'halaman film';
+        $tonton = false;
+        $film = daftar_film::find($daftar_film->id_film); 
+        //SELECT * FROM daftar_films WHERE 'id_films' = $daftar_films->id_film
+
+        $history = history_tontonan::Where('id_user', Auth::user()->id)->where('id_film', $daftar_film->id_film)->first();
+             $history ? $tonton = true : history_tontonan::create([
+            'id_user' => Auth::user()->id,
+            'id_film' => $daftar_film->id_film
         ]);
+        //INSERT INTO history_tontonan WHERE id_user = auth::user()->id AND id_film = $daftar_film->id_film
+
+        return view('film.film2', compact('film', 'tonton', 'title'));
     }
 
     public function tambahFilm()
@@ -67,6 +78,7 @@ class FilmController extends Controller
 
         daftar_film::create($data);
         //INSERT INTO daftar_films ('id_film', 'judul_film', 'batasan_umur_film', 'cover_film', 'description_film', 'komentar_film', 'id_director', 'id_pemain', 'id_genre', 'id_menu') VALUES ($id_film, $judul_film, $batasan_umur_film, $cover_film, $description_film, $komentar_film, daftar_directors['id_director'], daftar_pemains['id_pemain'], daftar_genres['id_genre'], daftar_menus['id_menu']);
+
           return redirect('/data-tontonan/film')->with('success', ' Film berhasil ditambah!');
 
     }

@@ -11,8 +11,8 @@ class PemainController extends Controller
     {
         return view('admin.pemain.index', [
             'title' => 'daftar pemain',
-            'pemain' => daftar_pemain::all()
-            //SELECT * FROM daftar_pemains
+            'pemains' => daftar_pemain::latest()->paginate(5)
+            //SELECT * FROM daftar_pemains ORDER BY DESC
         ]);
     }
 
@@ -24,7 +24,7 @@ class PemainController extends Controller
 
           daftar_pemain::create($pemain);
           //INSERT INTO daftar_pemains ('id_pemain', 'nama_pemain') VALUES ($id_pemain, $nama_pemain) 
-          //                        WHERE nama_pemain != daftar_pemains['nama_pemain']
+          //                        WHERE nama_pemain <> daftar_pemains['nama_pemain']
           return redirect('/pemain')->with('success', 'Pemeran sudah ditambahkan!');
         
     }

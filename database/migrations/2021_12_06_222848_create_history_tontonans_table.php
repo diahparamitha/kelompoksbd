@@ -16,6 +16,7 @@ class CreateHistoryTontonansTable extends Migration
         Schema::create('history_tontonans', function (Blueprint $table) {
             $table->increments('id_history_tontonan');
             $table->unsignedBigInteger('id_tvshow')->references('id')->on('daftar_tvshows')->onDelete('restrict');
+            $table->unsignedBigInteger('id_film')->references('id')->on('daftar_films')->onDelete('restrict');
             $table->unsignedBigInteger('id_user')->references('id')->on('Users')->onDelete('restrict');
             $table->timestamps();
         });

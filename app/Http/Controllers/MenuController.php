@@ -11,8 +11,8 @@ class MenuController extends Controller
     {
         return view('admin.menu.index', [
             'title' => 'daftar menu',
-            'menu' => daftar_menu::all()
-            //SELECT * FROM daftar_menus
+            'menus' => daftar_menu::latest()->paginate(5)
+            //SELECT * FROM daftar_menus ORDER BY DESC
         ]);
     }
 
@@ -24,7 +24,7 @@ class MenuController extends Controller
 
           daftar_menu::create($menu);
           //INSERT INTO daftar_menus ('id_menu', 'nama_menu') VALUES ($id_menu, $nama_menu) 
-          //                        WHERE nama_menu != daftar_menus['nama_menu']
+          //                        WHERE nama_menu <> daftar_menus['nama_menu']
           return redirect('/menu')->with('success', 'menu sudah ditambahkan!');
         
     }

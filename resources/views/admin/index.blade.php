@@ -28,12 +28,12 @@
               <th scope="col">Tanggal daftar</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($users as $user)
+            @foreach($users->skip(1) as $user)
             <tr>        
               <td valign="middle">{{$loop->iteration}}</td>
               <td valign="middle">{{$user->nama}}</td>
               <td valign="middle">{{$user->noHp}}</td>
-              <td><img src=" /images/{{ $user->foto }} " height="200px" width="200px"></td>
+              <td><img src=" /images/{{ $user->foto }} " height="100px" width="100px"></td>
               <td valign="middle">{{$user->created_at->diffForHumans()}}</td>
                <td valign="middle">
                 <a class="badge bg-primary text-decoration-none" href="/user/{{$user->id}}">Lihat</a>

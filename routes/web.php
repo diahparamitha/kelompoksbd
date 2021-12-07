@@ -44,7 +44,7 @@ Route::get('/data-tontonan/film', [AdminController::class, 'tontonFilm']);
 
 //Halaman film
 Route::get('/film', [FilmController::class, 'index'])->middleware('auth');
-Route::get('/film-info/{id}', [FilmController::class, 'film2'])->middleware('auth');
+Route::get('/film-info/{daftar_film}', [FilmController::class, 'film2'])->middleware('auth');
 Route::get('/film/tambah', [FilmController::class, 'tambahFilm'])->middleware('admin');
 Route::post('/film/tambah', [FilmController::class, 'tambahFilm1']);
 Route::get('/film-info/edit/{id}', [FilmController::class, 'edit']);

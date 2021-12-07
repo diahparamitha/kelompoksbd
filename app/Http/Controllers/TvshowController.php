@@ -28,12 +28,15 @@ class TvshowController extends Controller
        
         $title = 'halaman tvshow';
         $tonton = false;
-        $tvshow = daftar_tvshow::find($daftar_tvshow->id_tvshow);
+        $tvshow = daftar_tvshow::find($daftar_tvshow->id_tvshow); 
+        //SELECT * FROM daftar_tvshows WHERE 'id_tvshows' = $daftar_tvshows->id_tvshow
+
         $history = history_tontonan::Where('id_user', Auth::user()->id)->where('id_tvshow', $daftar_tvshow->id_tvshow)->first();
              $history ? $tonton = true : history_tontonan::create([
             'id_user' => Auth::user()->id,
             'id_tvshow' => $daftar_tvshow->id_tvshow
         ]);
+        //INSERT INTO history_tontonan WHERE id_user = auth::user()->id AND id_tvshow = $daftar_tvshow->id_tvshow
 
         return view('tvshow.infoShow', compact('tvshow', 'tonton', 'title'));
 
@@ -94,6 +97,7 @@ class TvshowController extends Controller
 
         daftar_tvshow::create($data);
         //INSERT INTO daftar_tvshows ('id_tvshow', 'judul_tvshow', 'batasan_umur_tvshow', 'cover_tvshow', 'description_tvshow', 'komentar_tvshow', 'id_director', 'id_pemain', 'id_genre', 'id_menu') VALUES ($id_tvshow, $judul_tvshow, $batasan_umur_tvshow, $cover_tvshow, $description_tvshow, $komentar_tvshow, daftar_directors['id_director'], daftar_pemains['id_pemain'], daftar_genres['id_genre'], daftar_menus['id_menu']);
+        
           return redirect('/data-tontonan')->with('success', ' Tvshow berhasil ditambah!');
 
     }

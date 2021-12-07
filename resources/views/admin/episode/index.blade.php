@@ -35,7 +35,7 @@
               <th scope="col">Daftar episode</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($episode as $episode)
+            @foreach($episodes as $episode)
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $episode->no_episode}}</td>
@@ -78,6 +78,10 @@
             </div>
           </div>
         </div>
+
+        <div class="d-flex justify-content-end">
+      {{ $episodes->links() }}  <!-- untuk pagination -->
+    </div>
 	</div>
 
 @include('layouts/partials/footer')

@@ -12,8 +12,8 @@ class GenreController extends Controller
     {
         return view('admin.genre.index', [
             'title' => 'genre',
-            'genre' => daftar_genre::all()
-            //SELECT * FROM daftar_genre
+            'genres' => daftar_genre::latest()->paginate(5)
+            //SELECT * FROM daftar_genre ORDER BY DESC
         ]);
     }
 
@@ -25,7 +25,7 @@ class GenreController extends Controller
 
           daftar_genre::create($genre);
           //INSERT INTO daftar_genre ('id_genre', 'nama_genre') VALUES ($id_genre, $nama_genre) 
-          //                        WHERE nama_genre != daftar_genres['nama_genre']
+          //                        WHERE nama_genre <> daftar_genres['nama_genre']
           return redirect('/genre')->with('success', 'Genre sudah ditambahkan!');
         
     }

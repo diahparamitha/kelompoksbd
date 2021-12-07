@@ -11,8 +11,8 @@ class DirectorController extends Controller
     {
         return view('admin.director.index', [
             'title' => 'daftar director',
-            'director' => daftar_director::all()
-            //SELECT * FROM daftar_directors;
+            'directors' => daftar_director::latest()->paginate(5)
+            //SELECT * FROM daftar_directors ORDER BY DESC
         ]);
     }
 
@@ -24,7 +24,8 @@ class DirectorController extends Controller
 
           daftar_director::create($director);
           //INSERT INTO daftar_directors ('id_director', 'nama_director') VALUES ($id_director, $nama_director) 
-          //                        WHERE nama_director != daftar_directors['nama_director']
+          //                        WHERE nama_director <> daftar_directors['nama_director']
+
           return redirect('/director')->with('success', 'director sudah ditambahkan!');
     }
 
@@ -36,7 +37,6 @@ class DirectorController extends Controller
             'director' => $director,
             'title' => 'edit director'
         ]);
-
         //SELECT * FROM daftar_directors WHERE id_director = $id_director LIMIT 1
     }
 

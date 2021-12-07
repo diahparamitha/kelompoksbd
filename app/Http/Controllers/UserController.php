@@ -44,7 +44,7 @@ class UserController extends Controller
          $regist['password'] = bcrypt($regist['password']);    //Meng-enkripsi password
 
           User::create($regist);
-          //INSERT INTO users ('id', 'nama', 'tanggal_lahir', 'jenisKelamin', 'noHP', 'foto', 'email', 'password') VALUES ($id, $nama, $tanggal_lahir, $jenisKelamin, $noHP, $foto, $email, $password) WHERE 'email' != users['email']
+          //INSERT INTO users ('id', 'nama', 'tanggal_lahir', 'jenisKelamin', 'noHP', 'foto', 'email', 'password') VALUES ($id, $nama, $tanggal_lahir, $jenisKelamin, $noHP, $foto, $email, $password) WHERE 'email' <> users['email']
           return redirect('/login')->with('login', ' Berhasil daftar, Silahkan Login!');
         
     }
@@ -73,7 +73,7 @@ class UserController extends Controller
                 'user' => $users,
                 'title' => 'detail profil']);
 
-            //SELECT * FROM users WHERE 'id' = users['id']
+            //SELECT * FROM users WHERE 'id' = $users->id LIMIT 1
        }
 
         public function logoutAkun(Request $request) //untuk logout
@@ -95,7 +95,7 @@ class UserController extends Controller
                 'users' => $users,
                 'title' => 'edit profil']);
 
-            //SELECT * FROM users WHERE id = $users
+            //SELECT * FROM users WHERE id = $users->id
         }
 
          public function update(Request $request, $id)
@@ -117,7 +117,7 @@ class UserController extends Controller
             $users->foto = $request->file('foto')->getClientOriginalName();
             $users->save();
 
-            //UPDATE users SET id = $users
+            //UPDATE users SET id = $users->id
         }
             return redirect('/')->with('edit', ' Profil berhasil diedit!');
        }
@@ -126,7 +126,7 @@ class UserController extends Controller
        {
             $user = User::find($id);
             $user->delete();
-            //DELETE users WHERE id = $user
+            //DELETE users WHERE id = $user->id
 
             return redirect('/admin')->with('delete', 'akun user berhasil dihapus');
        }

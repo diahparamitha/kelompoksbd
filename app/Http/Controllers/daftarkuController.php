@@ -17,11 +17,12 @@ class daftarkuController extends Controller
         ]);
     }
 
-    public function history()
-    {
-        return view('user.data.history', [
-            'title' => 'history',
-            'history' => history_tontonan::all()
-        ]);
-    }
+    // public function history()
+    // {
+    //     return view('user.data.history', [
+    //         'title' => 'history',
+    //         'history' => history_tontonan::all()
+    //         //SELECT * FROM history_tontonan
+    //     ]);
+    // }
 }

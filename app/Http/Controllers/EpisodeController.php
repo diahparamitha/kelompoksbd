@@ -11,8 +11,8 @@ class EpisodeController extends Controller
     {
         return view('admin.episode.index', [
             'title' => 'daftar episode',
-            'episode' => daftar_episode::all()
-            //SELECT * FROM daftar_episode
+            'episodes' => daftar_episode::latest()->paginate(5)
+            //SELECT * FROM daftar_episode ORDER BY DESC
         ]);
     }
 
@@ -24,7 +24,7 @@ class EpisodeController extends Controller
 
           daftar_episode::create($episode);
           //INSERT INTO daftar_episode ('id_episode', no_episode') VALUES ('$no_episode') 
-          //                    WHERE no_episode != daftar_episodes['no_episode']
+          //                    WHERE no_episode <> daftar_episodes['no_episode']
           return redirect('/episode')->with('success', 'episode sudah ditambahkan!');
         
     }

@@ -35,7 +35,7 @@
               <th scope="col">Daftar menu</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($menu as $menu)
+            @foreach($menus as $menu)
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $menu->nama_menu}}</td>
@@ -78,6 +78,10 @@
             </div>
           </div>
         </div>
+
+        <div class="d-flex justify-content-end">
+      {{ $menus->links() }}  <!-- untuk pagination -->
+    </div>
 	</div>
 
 @include('layouts/partials/footer')

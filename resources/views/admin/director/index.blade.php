@@ -35,7 +35,7 @@
               <th scope="col">Daftar director</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($director as $director)
+            @foreach($directors as $director)
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $director->nama_director}}</td>
@@ -78,6 +78,10 @@
             </div>
           </div>
         </div>
+
+        <div class="d-flex justify-content-end">
+      {{ $directors->links() }}  <!-- untuk pagination -->
+    </div>
 	</div>
 
 @include('layouts/partials/footer')

@@ -15,6 +15,7 @@ class IndexController extends Controller
             'title' => 'Beranda',
             'tontonan' => daftar_tvshow::all(),
             //SELECT * FROM daftar_tvshows
+            
             'films' => daftar_film::all()
             //SELECT * FROM daftar_films
         ]);

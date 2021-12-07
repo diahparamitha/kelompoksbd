@@ -35,7 +35,7 @@
               <th scope="col">Daftar pemain</th>
               <th scope="col">Aksi</th>
             </tr>
-            @foreach($pemain as $pemain)
+            @foreach($pemains as $pemain)
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $pemain->nama_pemain}}</td>
@@ -78,6 +78,10 @@
             </div>
           </div>
         </div>
+
+        <div class="d-flex justify-content-end">
+      {{ $pemains->links() }}  <!-- untuk pagination -->
+    </div>
 	</div>
 
 @include('layouts/partials/footer')
