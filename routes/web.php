@@ -93,5 +93,3 @@ Route::post('/pemain/update/{id}', [PemainController::class, 'update']);
 //Halaman daftarku
 Route::get('/daftarku', [daftarkuController::class, 'daftarku']);
 Route::get('/history', [daftarkuController::class, 'history']);
-/*Route::get('/daftarku/{id}', [daftarkuController::class, 'tambahdaftarku']);
-*/
